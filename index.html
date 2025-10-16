@@ -1,3 +1,7 @@
+<!-- index.html (updated)
+     - Header shows branding only once.
+     - Hero no longer repeats the full name; header contains the single brand instance.
+-->
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,21 +9,20 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="author-name" content="Ian Tolentino">
   <title>Ian Tolentino — Professional Portfolio</title>
-  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'><rect width='100%' height='100%' fill='%230d1117'/><text x='50%' y='55%' font-size='32' text-anchor='middle' fill='%23ffffff' font-family='Inter, Arial' font-weight='700'>IT</text></svg>">
+  <link rel="icon" href="">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container header">
-    <div class="brand">
-      <div class="chip">IT</div>
+    <div class="brand" aria-hidden="false">
+      <div class="chip" aria-hidden="true">IT</div>
       <div>
         <div class="site-title">Ian Tolentino</div>
-        <div class="muted" style="font-size:12px">IT Administrator · Software Developer</div>
       </div>
     </div>
 
     <nav class="primary" aria-label="Primary navigation">
-      <a href="index.html">Home</a>
+      <a href="index.html" class="active">Home</a>
       <a href="projects.html">Projects</a>
       <a href="skills.html">Skills</a>
       <a href="experience.html">Experience</a>
@@ -32,9 +35,8 @@
     </div>
   </div>
 
-  <!-- Mobile Nav (overlay) -->
-  <div id="mobileNav" class="mobile-nav" role="dialog" aria-hidden="true">
-    <div class="menu">
+  <div id="mobileNav" class="mobile-nav" aria-hidden="true">
+    <div class="menu" role="menu" aria-label="Mobile navigation">
       <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
       <a href="skills.html">Skills</a>
@@ -45,15 +47,15 @@
   </div>
 
   <div class="container">
-    <section class="hero main-card">
+    <section class="hero main-card" aria-labelledby="hero-subtitle">
       <div class="avatar avatar-initials" aria-hidden="false">
-        <!-- If you prefer an image avatar, replace the contents above with this img (uncomment below) and remove initials:
+        <!-- If you prefer an image avatar, replace the contents above with:
              <img src="path/to/profile.jpg" alt="Ian Tolentino"> -->
       </div>
 
       <div class="bio">
-        <h1>Ian Tolentino</h1>
-        <div class="subtitle">IT Administrator · Software Developer · IT Support</div>
+        <!-- NOTE: name intentionally not repeated here to avoid duplicate branding -->
+        <div id="hero-subtitle" class="subtitle">IT Administrator · Software Developer · IT Support</div>
         <p class="muted">Enthusiastic developer with experience in Python, web development, system maintenance and e-commerce. Always learning: cloud and security.</p>
 
         <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px">
@@ -70,24 +72,13 @@
     <section class="main-card">
       <div class="section-title">Quick Projects Preview</div>
       <div class="grid">
-        <div class="card">
-          <h3>Lubaofurniture.com</h3>
-          <p class="muted">Shopify e-commerce store customizations, payments and performance tuning.</p>
-        </div>
-        <div class="card">
-          <h3>Payroll Desktop Tool</h3>
-          <p class="muted">Python-based payroll calculator and payslip generator (desktop)</p>
-        </div>
-        <div class="card">
-          <h3>QR Attendance</h3>
-          <p class="muted">Scanner-driven attendance solution with QR code generator and camera integration.</p>
-        </div>
+        <div class="card"><h3>Lubaofurniture.com</h3><p class="muted">Shopify e-commerce customizations and optimizations.</p></div>
+        <div class="card"><h3>Payroll Desktop Tool</h3><p class="muted">Python payroll processing app with payslip export.</p></div>
+        <div class="card"><h3>QR Attendance</h3><p class="muted">Scanner-driven attendance solution with QR integration.</p></div>
       </div>
     </section>
 
-    <footer>
-      © 2025 Ian Tolentino — <a href="contact.html">Contact</a>
-    </footer>
+    <footer>© 2025 Ian Tolentino — <a href="contact.html">Contact</a></footer>
   </div>
 
   <script src="main.js"></script>
