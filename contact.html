@@ -1,15 +1,17 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="author-name" content="Ian Tolentino">
   <title>Contact — Ian Tolentino</title>
   <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'><rect width='100%' height='100%' fill='%230d1117'/><text x='50%' y='55%' font-size='32' text-anchor='middle' fill='%23ffffff' font-family='Inter, Arial' font-weight='700'>IT</text></svg>">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Header (uniform across pages) -->
   <div class="container header">
-    <div class="brand"><div class="chip">IT</div><div><div class="site-title">Ian Tolentino</div><div class="muted" style="font-size:12px">Contact</div></div></div>
+    <!-- Primary nav (centered on large screens; hidden on small screens) -->
     <nav class="primary" aria-label="Primary navigation">
       <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
@@ -18,23 +20,61 @@
       <a href="about.html">About</a>
       <a href="contact.html" class="active">Contact</a>
     </nav>
-    <div class="controls"><button id="hamburgerBtn" class="hamburger btn">☰</button></div>
+
+    <!-- Controls area (hamburger shown on small screens) -->
+    <div class="controls">
+      <button id="hamburgerBtn" class="hamburger btn" aria-controls="mobileNav" aria-expanded="false" aria-label="Open menu">☰</button>
+    </div>
   </div>
 
-  <div id="mobileNav" class="mobile-nav"><div class="menu"><a href="index.html">Home</a><a href="projects.html">Projects</a><a href="skills.html">Skills</a><a href="experience.html">Experience</a><a href="about.html">About</a><a href="contact.html">Contact</a></div></div>
+  <!-- Mobile nav overlay (used on small devices) -->
+  <div id="mobileNav" class="mobile-nav" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="menu" role="menu" aria-label="Mobile navigation">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="skills.html">Skills</a>
+      <a href="experience.html">Experience</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+  </div>
 
   <div class="container">
-    <section class="main-card">
-      <div class="section-title">Contact</div>
-      <form id="contactForm" class="grid" style="grid-template-columns:1fr">
-        <div class="card" style="padding:12px">
+    <!-- Top card: site name + subtitle (keeps branding single occurrence) -->
+    <section class="main-card" aria-labelledby="contactHeading">
+      <div class="hero" style="align-items:flex-start;">
+        <div class="avatar" aria-hidden="true">
+          IT
+          <!--
+            To use a real profile image instead of initials, replace the inner text above with:
+            <img src="image/profile.jpg" alt="Ian Tolentino">
+            and remove the "IT" text. Uncomment and supply your image at image/profile.jpg
+          -->
+        </div>
+
+        <div class="bio" style="padding-top:6px;">
+          <div class="site-name-large">Ian Tolentino</div>
+          <div id="hero-subtitle" class="subtitle">IT Administrator · Software Developer · IT Support</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact form (ID/class names uniform with other pages) -->
+    <section class="main-card" aria-labelledby="contactHeading2">
+      <div id="contactHeading2" class="section-title">Contact</div>
+
+      <form id="contact-form" class="grid form" style="grid-template-columns:1fr;gap:14px" novalidate>
+        <div class="card" style="padding:16px;display:flex;flex-direction:column;gap:12px">
           <label class="muted" for="name">Name</label>
           <input id="name" class="input" name="name" type="text" placeholder="Your name" required />
-          <label class="muted" for="email" style="margin-top:10px">Email</label>
+
+          <label class="muted" for="email">Email</label>
           <input id="email" class="input" name="email" type="email" placeholder="your@email.com" required />
-          <label class="muted" for="message" style="margin-top:10px">Message</label>
+
+          <label class="muted" for="message">Message</label>
           <textarea id="message" class="input" name="message" placeholder="Write your message..." required></textarea>
-          <div style="margin-top:10px">
+
+          <div style="margin-top:6px">
             <button type="submit" class="btn primary">Send Message</button>
           </div>
         </div>
@@ -45,14 +85,44 @@
   </div>
 
   <script>
-    // contact form basic behavior (demo)
-    document.getElementById('contactForm').addEventListener('submit', function(e){
-      e.preventDefault();
-      alert('Thanks — this demo does not send messages. Replace handler to connect to your backend or email service.');
-      this.reset();
-    });
-  </script>
+    // Simple mobile navigation toggle (matches CSS classes)
+    (function(){
+      const hamburger = document.getElementById('hamburgerBtn');
+      const mobileNav = document.getElementById('mobileNav');
+      function openNav(){
+        mobileNav.classList.add('show');
+        mobileNav.setAttribute('aria-hidden','false');
+        hamburger.setAttribute('aria-expanded','true');
+        // trap focus to mobile menu if needed (simple)
+        document.body.style.overflow = 'hidden';
+      }
+      function closeNav(){
+        mobileNav.classList.remove('show');
+        mobileNav.setAttribute('aria-hidden','true');
+        hamburger.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+      }
+      hamburger.addEventListener('click', (e) => {
+        if(mobileNav.classList.contains('show')) closeNav(); else openNav();
+      });
+      // close when clicking overlay area (mobileNav itself)
+      mobileNav.addEventListener('click', (e) => {
+        if(e.target === mobileNav) closeNav();
+      });
+      // close on Escape
+      document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape' && mobileNav.classList.contains('show')) closeNav();
+      });
 
-  <script src="main.js"></script>
+      // Ensure nav/profile duplicated text not shown: header nav is centered on large screens; mobile menu used on small screens
+      // Contact form handler (demo)
+      const form = document.getElementById('contact-form');
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        alert('Thanks — this demo does not send messages. Replace handler to connect to your backend or email service.');
+        form.reset();
+      });
+    })();
+  </script>
 </body>
 </html>
