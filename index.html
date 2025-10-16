@@ -1,241 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ian Tolentino — Professional Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --github-dark: #0d1117;
-            --github-gray: #161b22;
-            --github-light-gray: #21262d;
-            --github-blue: #58a6ff;
-            --github-text: #c9d1d9;
-            --github-border: #30363d;
-        }
-        * { box-sizing: border-box; margin:0; padding:0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-        body { background: var(--github-dark); color: var(--github-text); line-height:1.6; }
-        .container { max-width:1012px; margin:0 auto; padding:32px 16px; }
-        header { display:flex; justify-content:space-between; align-items:center; padding:16px 0; border-bottom:1px solid var(--github-border); margin-bottom:32px; }
-        .logo { font-weight:700; color:var(--github-blue); font-size:18px; }
-        nav ul { display:flex; gap:20px; list-style:none; }
-        nav a { color:var(--github-text); text-decoration:none; font-size:14px; }
-        nav a:hover { color:var(--github-blue); }
-        .hero { display:flex; gap:32px; align-items:center; margin-bottom:48px; }
-        .avatar { width:200px; height:200px; border-radius:50%; overflow:hidden; border:3px solid var(--github-border); flex-shrink:0; }
-        .avatar img { width:100%; height:100%; object-fit:cover; }
-        .bio h1 { font-size:28px; color:#fff; margin-bottom:6px; }
-        .title { color:var(--github-blue); font-weight:600; margin-bottom:8px; }
-        .bio p { opacity:0.9; margin-bottom:12px; }
-        .contact-inline { display:flex; gap:12px; flex-wrap:wrap; font-size:14px; opacity:0.9; }
-        .contact-inline a { color:var(--github-text); text-decoration:none; }
-        .social-links { display:flex; gap:12px; margin-top:14px; }
-        .social-links a { color:var(--github-text); font-size:18px; }
-        .section { margin-bottom:56px; }
-        .section-title { font-size:22px; margin-bottom:18px; padding-bottom:8px; border-bottom:1px solid var(--github-border); color:#fff; }
-        .projects-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:18px; }
-        .card { background:var(--github-gray); border:1px solid var(--github-border); border-radius:8px; padding:18px; }
-        .card h3 { margin-bottom:10px; color:var(--github-blue); }
-        .card p { margin-bottom:12px; font-size:14px; }
-        .tech { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
-        .tech span { background:var(--github-light-gray); padding:6px 10px; border-radius:999px; font-size:12px; }
-        .meta { font-size:13px; opacity:0.85; margin-bottom:8px; }
-        .project-links a { color:var(--github-blue); text-decoration:none; font-size:14px; display:inline-flex; gap:8px; align-items:center; }
-        form { max-width:640px; }
-        .form-group { margin-bottom:14px; }
-        label { display:block; margin-bottom:6px; font-size:14px; }
-        input, textarea { width:100%; padding:10px; background:var(--github-gray); border:1px solid var(--github-border); border-radius:6px; color:var(--github-text); font-size:14px; }
-        textarea { min-height:120px; resize:vertical; }
-        button { background:var(--github-blue); color:#fff; padding:10px 18px; border-radius:8px; border:none; cursor:pointer; font-weight:600; }
-        footer { text-align:center; padding:28px 0; border-top:1px solid var(--github-border); opacity:0.75; font-size:14px; }
-        @media (max-width:768px) { .hero { flex-direction:column; text-align:center; } .social-links { justify-content:center; } }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="author-name" content="Ian Tolentino">
+  <title>Ian Tolentino — Professional Portfolio</title>
+  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'><rect width='100%' height='100%' fill='%230d1117'/><text x='50%' y='55%' font-size='32' text-anchor='middle' fill='%23ffffff' font-family='Inter, Arial' font-weight='700'>IT</text></svg>">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">Ian Tolentino</div>
-            <nav>
-                <ul>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <section class="hero" id="home">
-            <div class="avatar">
-                <img src="https://source.unsplash.com/400x400/?portrait,developer" alt="Ian Tolentino">
-            </div>
-            <div class="bio">
-                <h1>Ian Tolentino</h1>
-                <div class="title">IT Administrator | Software Developer | IT Support</div>
-                <p>An enthusiastic software and web developer with hands-on experience in Python, web development, system maintenance, and e-commerce solutions. Currently expanding into cybersecurity and cloud-native practices.</p>
-
-                <div class="contact-inline">
-                    <span><i class="fas fa-map-marker-alt"></i> Mabalacat, Pampanga</span>
-                    <a href="tel:09613305736"><i class="fas fa-phone"></i> 0961-330-5736</a>
-                    <a href="mailto:iantolentino0110@gmail.com"><i class="fas fa-envelope"></i> iantolentino0110@gmail.com</a>
-                    <a href="https://github.com/iantolentino" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> github.com/iantolentino</a>
-                </div>
-
-                <div class="social-links">
-                    <a href="https://github.com/iantolentino" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="section">
-            <h2 class="section-title">Selected Projects</h2>
-            <div class="projects-grid">
-                <div class="card">
-                    <h3>Lubaofurniture.com — Shopify (Jan 2025 — May 2025)</h3>
-                    <p>Designed, deployed and customized a Shopify e-commerce store. Improved mobile responsiveness, optimized product listings and payment integration; led to a reported ~30% increase in sales.</p>
-                    <div class="tech"><span>Shopify</span><span>Payments</span><span>HTML/CSS</span><span>Store Optimization</span></div>
-                    <div class="meta">Role: Developer — eCommerce and backend configurations</div>
-                    <div class="project-links"><a href="#"><i class="fab fa-github"></i> Repo</a></div>
-                </div>
-
-                <div class="card">
-                    <h3>Payroll Management Tool — Desktop (Mar 2025)</h3>
-                    <p>Python desktop application for payroll processing with local storage, automated salary computation, deductions and payslip generation; reduced manual effort and computation time.</p>
-                    <div class="tech"><span>Python</span><span>Tkinter</span><span>Local Storage</span></div>
-                    <div class="meta">Role: Developer</div>
-                </div>
-
-                <div class="card">
-                    <h3>QR Code Generator & Attendance Tracker (Feb–Mar 2025)</h3>
-                    <p>Built a desktop QR code generator and a camera/external-scanner based attendance tracker for automated check-ins and employee registration.</p>
-                    <div class="tech"><span>Python</span><span>QR Codes</span><span>OpenCV / Camera</span></div>
-                    <div class="meta">Role: Developer</div>
-                </div>
-
-                <div class="card">
-                    <h3>Luminar — Adaptive Brightness (Capstone, Oct 2024)</h3>
-                    <p>Capstone: an automatic adaptive screen brightness overlay software with customizable settings; received highest grade based on functionality and feedback.</p>
-                    <div class="tech"><span>Python</span><span>Desktop App</span></div>
-                    <div class="meta">Role: Capstone Project Lead</div>
-                </div>
-
-                <div class="card">
-                    <h3>Dynamic Developer Portfolio Generator (Sep 2024)</h3>
-                    <p>CLI Python tool that auto-generates personalized portfolio websites from templates and user input.</p>
-                    <div class="tech"><span>Python</span><span>CLI</span><span>HTML Templates</span></div>
-                </div>
-
-                <div class="card">
-                    <h3>Print Management & Link Management Tools</h3>
-                    <p>Utilities to manage printing workflows (page rotation, filters, deadlines) and a link manager for customizing and organizing user links.</p>
-                    <div class="tech"><span>Python</span><span>Web</span><span>UX</span></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills" class="section">
-            <h2 class="section-title">Skills</h2>
-            <div class="projects-grid">
-                <div class="card">
-                    <h3>Programming</h3>
-                    <p>Python, JavaScript, SQL, Java</p>
-                </div>
-                <div class="card">
-                    <h3>Web & E‑commerce</h3>
-                    <p>HTML, CSS, Bootstrap, Django, Flask, Shopify development, Payment integration</p>
-                </div>
-                <div class="card">
-                    <h3>Tools & Dev Practices</h3>
-                    <p>Git/GitHub, VS Code, PyCharm, Jupyter, Debugging & Testing, Database management</p>
-                </div>
-                <div class="card">
-                    <h3>IT & Admin</h3>
-                    <p>System maintenance, troubleshooting, Microsoft Office, Google Workspace, CCTV installation, Zapier</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="experience" class="section">
-            <h2 class="section-title">Experience</h2>
-            <div class="projects-grid">
-                <div class="card">
-                    <h3>IT Support / IT Administrator / Software Developer — Internship (Jan 2025 — Apr 2025)</h3>
-                    <ul style="margin-top:8px; padding-left:18px;">
-                        <li>Diagnosed and resolved hardware/software issues (workstations, printers, local servers), reducing downtime.</li>
-                        <li>Installed and maintained CCTV systems to improve security monitoring.</li>
-                        <li>Organized 500+ digital files and processed 100+ blueprints to improve workflow.</li>
-                        <li>Assisted developing an Inventory Management System that boosted stock efficiency (~60%) and reduced errors (~40%).</li>
-                        <li>Managed and customized Lubaofurniture.com (product listing, payment integration and backend), improving performance and sales.</li>
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <h3>Education</h3>
-                    <p><strong>Pampanga State Agricultural University</strong><br>B.S. Information Technology (2021 — 2025)<br>Focus: Software & Web Development, System Maintenance. GPA: 1.53 / 5.00</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="section">
-            <h2 class="section-title">Competitions & Achievements</h2>
-            <div class="projects-grid">
-                <div class="card">
-                    <h3>Selected Highlights</h3>
-                    <ul style="margin-top:8px; padding-left:18px;">
-                        <li>Philippine Start-up Challenge — Regional Pitch Competition (Oct 2023)</li>
-                        <li>PSAU Creativity & Innovation Day — Pitch (April 2024)</li>
-                        <li>TOPCIT — Level 4 IT Competency (April 2024)</li>
-                        <li>DICT Programming Course (Sept 2024) — Accredited training completion</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="section">
-            <h2 class="section-title">Contact</h2>
-            <form id="contact-form">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input id="name" name="name" type="text" placeholder="Your name" required />
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input id="email" name="email" type="email" placeholder="your@email.com" required />
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" placeholder="Your message..." required></textarea>
-                </div>
-                <button type="submit">Send Message</button>
-            </form>
-        </section>
-
-        <footer>
-            <p>© 2025 Ian Tolentino. Built with care.</p>
-        </footer>
+  <div class="container header">
+    <div class="brand">
+      <div class="chip">IT</div>
+      <div>
+        <div class="site-title">Ian Tolentino</div>
+        <div class="muted" style="font-size:12px">IT Administrator · Software Developer</div>
+      </div>
     </div>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
-            });
-        });
+    <nav class="primary" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="skills.html">Skills</a>
+      <a href="experience.html">Experience</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
 
-        // Simple form handling (demo) — replace with integration to your backend or email service
-        const form = document.getElementById('contact-form');
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thanks! Your message was received (demo).');
-            form.reset();
-        });
-    </script>
+    <div class="controls">
+      <button id="hamburgerBtn" class="hamburger btn" aria-label="Open menu" title="Menu">☰</button>
+    </div>
+  </div>
+
+  <!-- Mobile Nav (overlay) -->
+  <div id="mobileNav" class="mobile-nav" role="dialog" aria-hidden="true">
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="skills.html">Skills</a>
+      <a href="experience.html">Experience</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="hero main-card">
+      <div class="avatar avatar-initials" aria-hidden="false">
+        <!-- If you prefer an image avatar, replace the contents above with this img (uncomment below) and remove initials:
+             <img src="path/to/profile.jpg" alt="Ian Tolentino"> -->
+      </div>
+
+      <div class="bio">
+        <h1>Ian Tolentino</h1>
+        <div class="subtitle">IT Administrator · Software Developer · IT Support</div>
+        <p class="muted">Enthusiastic developer with experience in Python, web development, system maintenance and e-commerce. Always learning: cloud and security.</p>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px">
+          <div class="kv">Location:</div><div class="muted">Mabalacat, Pampanga</div>
+        </div>
+        <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+          <a class="btn" href="mailto:iantolentino0110@gmail.com">Email</a>
+          <a class="btn" href="https://github.com/iantolentino" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="main-card">
+      <div class="section-title">Quick Projects Preview</div>
+      <div class="grid">
+        <div class="card">
+          <h3>Lubaofurniture.com</h3>
+          <p class="muted">Shopify e-commerce store customizations, payments and performance tuning.</p>
+        </div>
+        <div class="card">
+          <h3>Payroll Desktop Tool</h3>
+          <p class="muted">Python-based payroll calculator and payslip generator (desktop)</p>
+        </div>
+        <div class="card">
+          <h3>QR Attendance</h3>
+          <p class="muted">Scanner-driven attendance solution with QR code generator and camera integration.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 Ian Tolentino — <a href="contact.html">Contact</a>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
 </body>
 </html>
