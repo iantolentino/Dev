@@ -1,10 +1,6 @@
-// main.js (updated)
-// - removed any dependency on .brand
-// - mobile nav/hamburger behavior remains; nav centered on desktop by CSS
-// - avatar initials + favicon setup
-
+// main.js (updated for new navigation)
 (function(){
-  const fullName = 'Ian Tolentino'; // single source of truth for name
+  const fullName = 'Ian Tolentino';
   const initials = (fullName.split(' ').map(n=>n[0]).slice(0,2).join('').toUpperCase()) || 'IT';
 
   // set avatar initials
@@ -29,7 +25,7 @@
   function openMobile(){
     if(!isMobileView()) return;
     mobileNav.classList.add('show');
-    container.style.filter = 'blur(8px)'; // stronger blur for readability
+    container.style.filter = 'blur(8px)';
     document.body.style.overflow = 'hidden';
   }
   function closeMobile(){
