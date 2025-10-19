@@ -9,13 +9,6 @@
     el.setAttribute('aria-label', fullName);
   });
 
-  // favicon as initials SVG
-  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'><rect width='100%' height='100%' fill='%230d1117'/><text x='50%' y='55%' font-size='32' text-anchor='middle' fill='%23ffffff' font-family='Inter, Arial' font-weight='700'>${initials}</text></svg>`;
-  const url = 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
-  let link = document.querySelector("link[rel~='icon']");
-  if(!link){ link = document.createElement('link'); link.rel='icon'; document.head.appendChild(link); }
-  link.href = url;
-
   const hamburger = document.getElementById('hamburgerBtn');
   const mobileNav = document.getElementById('mobileNav');
   const container = document.querySelector('.container');
