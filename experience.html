@@ -1,4 +1,4 @@
-<!-- experience.html (completely updated with professional details) -->
+<!-- experience.html (updated with responsive design) -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,18 +11,17 @@
 </head>
 <body>
   <div class="container header">
-    <nav class="primary" aria-label="Primary navigation">
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="skills.html">Skills</a>
-      <a href="experience.html" class="active">Experience</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+      <nav class="primary" aria-label="Primary navigation">
+        <a href="index.html">About Me</a>
+        <a href="projects.html">Projects</a> 
+        <a href="skills.html">Skills</a>
+        <a href="experience.html">Experience</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     <div class="controls"><button id="hamburgerBtn" class="hamburger btn">☰</button></div>
   </div>
 
-  <div id="mobileNav" class="mobile-nav"><div class="menu"><a href="index.html">Home</a><a href="projects.html">Projects</a><a href="skills.html">Skills</a><a href="experience.html">Experience</a><a href="about.html">About</a><a href="contact.html">Contact</a></div></div>
+  <div id="mobileNav" class="mobile-nav"><div class="menu"><a href="index.html">About Me</a><a href="projects.html">Projects</a><a href="skills.html">Skills</a><a href="experience.html">Experience</a><a href="contact.html">Contact</a></div></div>
 
   <div class="container">
     <section class="main-card">
@@ -44,11 +43,20 @@
             <ul class="achievement-list">
               <li>Reduced average ticket resolution time by introducing standardized troubleshooting steps and knowledge base articles</li>
               <li>Monitored and maintained 100+ PCs, ensuring >99% availability for critical workstations during business hours</li>
-              <li>Implemented automation scripts for bulk user provisioning and reporting tasks</li>
-              <li>Created Radmin automation for server monitoring and maintenance</li>
-              <li>Led in-house training sessions for end-users, improving Office productivity and reducing repetitive support tickets</li>
-              <li>Assisted in improving internal web applications' reliability by identifying and reporting recurring errors to developers</li>
+              <li class="detail-item">Implemented automation scripts for bulk user provisioning and reporting tasks</li>
+              <li class="detail-item">Created Radmin automation for server monitoring and maintenance</li>
+              <li class="detail-item">Led in-house training sessions for end-users, improving Office productivity and reducing repetitive support tickets</li>
+              <li class="detail-item">Assisted in improving internal web applications' reliability by identifying and reporting recurring errors to developers</li>
             </ul>
+            <button class="btn see-details-btn" data-target="details-1">See Details</button>
+            <div id="details-1" class="additional-details" style="display: none;">
+              <ul class="achievement-list">
+                <li>Implemented automation scripts for bulk user provisioning and reporting tasks</li>
+                <li>Created Radmin automation for server monitoring and maintenance</li>
+                <li>Led in-house training sessions for end-users, improving Office productivity and reducing repetitive support tickets</li>
+                <li>Assisted in improving internal web applications' reliability by identifying and reporting recurring errors to developers</li>
+              </ul>
+            </div>
           </div>
 
           <div class="technologies-used">
@@ -210,6 +218,8 @@
       justify-content: space-between;
       align-items: center;
       margin: 8px 0;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
     .company {
@@ -259,6 +269,10 @@
       font-weight: bold;
     }
 
+    .achievement-list li.detail-item {
+      display: none;
+    }
+
     .technologies-used {
       margin-top: 16px;
     }
@@ -280,7 +294,71 @@
       color: var(--success);
       border-color: rgba(63, 185, 80, 0.3);
     }
+
+    .see-details-btn {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      padding: 6px 12px;
+    }
+
+    .additional-details {
+      margin-top: 12px;
+      animation: fadeIn 0.3s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      .company-period {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .tech-tags {
+        gap: 6px;
+      }
+      
+      .tech-tag {
+        font-size: 0.8rem;
+        padding: 3px 6px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .experience-header h3 {
+        font-size: 1.1rem;
+      }
+      
+      .achievement-list li {
+        font-size: 0.85rem;
+      }
+    }
   </style>
+
+  <script>
+    // See Details functionality for experience items
+    document.addEventListener('DOMContentLoaded', function() {
+      const seeDetailsBtns = document.querySelectorAll('.see-details-btn');
+      
+      seeDetailsBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const targetId = this.getAttribute('data-target');
+          const detailsSection = document.getElementById(targetId);
+          
+          if (detailsSection.style.display === 'none' || !detailsSection.style.display) {
+            detailsSection.style.display = 'block';
+            this.textContent = 'Hide Details';
+          } else {
+            detailsSection.style.display = 'none';
+            this.textContent = 'See Details';
+          }
+        });
+      });
+    });
+  </script>
 
   <script src="main.js"></script>
 </body>
