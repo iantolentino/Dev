@@ -1,3 +1,4 @@
+<!-- contact.html (updated with contact details) -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,47 +10,34 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Header (uniform across pages) -->
   <div class="container header">
-    <!-- Primary nav (centered on large screens; hidden on small screens) -->
-    <nav class="primary" aria-label="Primary navigation">
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="skills.html">Skills</a>
-      <a href="experience.html">Experience</a>
-      <a href="about.html">About</a>
-      <a href="contact.html" class="active">Contact</a>
-    </nav>
+      <nav class="primary" aria-label="Primary navigation">
+        <a href="index.html">About Me</a>
+        <a href="projects.html">Projects</a> <!-- active class changes per page -->
+        <a href="skills.html">Skills</a>
+        <a href="experience.html">Experience</a>
+        <a href="contact.html">Contact</a>
+      </nav>
 
-    <!-- Controls area (hamburger shown on small screens) -->
     <div class="controls">
       <button id="hamburgerBtn" class="hamburger btn" aria-controls="mobileNav" aria-expanded="false" aria-label="Open menu">☰</button>
     </div>
   </div>
 
-  <!-- Mobile nav overlay (used on small devices) -->
   <div id="mobileNav" class="mobile-nav" aria-hidden="true" role="dialog" aria-modal="true">
     <div class="menu" role="menu" aria-label="Mobile navigation">
-      <a href="index.html">Home</a>
+      <a href="index.html">About Me</a>
       <a href="projects.html">Projects</a>
       <a href="skills.html">Skills</a>
       <a href="experience.html">Experience</a>
-      <a href="about.html">About</a>
       <a href="contact.html" class="active">Contact</a>
     </div>
   </div>
 
   <div class="container">
-    <!-- Top card: site name + subtitle (keeps branding single occurrence) -->
     <section class="main-card" aria-labelledby="contactHeading">
       <div class="hero" style="align-items:flex-start;">
-        <div class="avatar" aria-hidden="true">
-          IT
-          <!--
-            To use a real profile image instead of initials, replace the inner text above with:
-            <img src="image/profile.jpg" alt="Ian Tolentino">
-            and remove the "IT" text. Uncomment and supply your image at image/profile.jpg
-          -->
+        <div class="avatar avatar-initials" aria-hidden="true">
         </div>
 
         <div class="bio" style="padding-top:6px;">
@@ -59,9 +47,44 @@
       </div>
     </section>
 
-    <!-- Contact form (ID/class names uniform with other pages) -->
     <section class="main-card" aria-labelledby="contactHeading2">
-      <div id="contactHeading2" class="section-title">Contact</div>
+      <div id="contactHeading2" class="section-title">Contact Information</div>
+      
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 30px;">
+        <div class="card contact-info">
+          <h3>Email</h3>
+          <p class="muted">Primary contact method</p>
+          <div class="contact-details">
+            <a href="mailto:iantolentino0110@gmail.com" class="contact-link">iantolentino0110@gmail.com</a>
+          </div>
+        </div>
+        
+        <div class="card contact-info">
+          <h3>GitHub</h3>
+          <p class="muted">View my projects and contributions</p>
+          <div class="contact-details">
+            <a href="https://github.com/iantolentino" target="_blank" class="contact-link">github.com/iantolentino</a>
+          </div>
+        </div>
+        
+        <div class="card contact-info">
+          <h3>Location</h3>
+          <p class="muted">Based in Pampanga, Philippines</p>
+          <div class="contact-details">
+            <span class="contact-text">Mabalacat, Pampanga</span>
+          </div>
+        </div>
+        
+        <div class="card contact-info">
+          <h3>Availability</h3>
+          <p class="muted">Current status for opportunities</p>
+          <div class="contact-details">
+            <span class="contact-text status-available">Open to Opportunities</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title">Send a Message</div>
 
       <form id="contact-form" class="grid form" style="grid-template-columns:1fr;gap:14px" novalidate>
         <div class="card" style="padding:16px;display:flex;flex-direction:column;gap:12px">
@@ -84,8 +107,58 @@
     <footer>© 2025 Ian Tolentino</footer>
   </div>
 
+  <style>
+    .contact-info {
+      text-align: center;
+      padding: 20px;
+    }
+    
+    .contact-info h3 {
+      margin-bottom: 8px;
+      color: var(--accent);
+    }
+    
+    .contact-details {
+      margin-top: 12px;
+    }
+    
+    .contact-link {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    .contact-link:hover {
+      color: var(--accent-dark);
+    }
+    
+    .contact-text {
+      color: var(--text);
+      font-weight: 600;
+    }
+    
+    .status-available {
+      color: var(--success);
+      background: rgba(63, 185, 80, 0.1);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr !important;
+      }
+      
+      .contact-info {
+        padding: 16px;
+      }
+    }
+  </style>
+
   <script>
-    // Simple mobile navigation toggle (matches CSS classes)
+    // Simple mobile navigation toggle
     (function(){
       const hamburger = document.getElementById('hamburgerBtn');
       const mobileNav = document.getElementById('mobileNav');
@@ -93,7 +166,6 @@
         mobileNav.classList.add('show');
         mobileNav.setAttribute('aria-hidden','false');
         hamburger.setAttribute('aria-expanded','true');
-        // trap focus to mobile menu if needed (simple)
         document.body.style.overflow = 'hidden';
       }
       function closeNav(){
@@ -105,16 +177,13 @@
       hamburger.addEventListener('click', (e) => {
         if(mobileNav.classList.contains('show')) closeNav(); else openNav();
       });
-      // close when clicking overlay area (mobileNav itself) 
       mobileNav.addEventListener('click', (e) => {
         if(e.target === mobileNav) closeNav();
       });
-      // close on Escape
       document.addEventListener('keydown', (e) => {
         if(e.key === 'Escape' && mobileNav.classList.contains('show')) closeNav();
       });
 
-      // Ensure nav/profile duplicated text not shown: header nav is centered on large screens; mobile menu used on small screens
       // Contact form handler (demo)
       const form = document.getElementById('contact-form');
       form.addEventListener('submit', function(e){
@@ -124,5 +193,6 @@
       });
     })();
   </script>
+  <script src="main.js"></script>
 </body>
 </html>
