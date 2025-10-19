@@ -1,16 +1,16 @@
-<!-- index.html (updated) -->
+<!-- index.html (updated with enhanced stats and featured projects) -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="author-name" content="Ian Tolentino">
-  <title>Ian Tolentino — Professional Portfolio</title>
+  <meta name="description" content="Full-stack Developer & IT Administrator with 51+ projects in Python, JavaScript, and modern web technologies">
+  <title>Ian Tolentino — Full-stack Developer & IT Administrator</title>
   <link rel="icon" href="">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Header with centered nav on large screens; no brand div -->
   <div class="container header">
     <nav class="primary" aria-label="Primary navigation">
       <a href="index.html" class="active">Home</a>
@@ -26,7 +26,6 @@
     </div>
   </div>
 
-  <!-- Mobile nav overlay/menu (hidden on large screens) -->
   <div id="mobileNav" class="mobile-nav" aria-hidden="true">
     <div class="menu" role="menu" aria-label="Mobile navigation">
       <a href="index.html">Home</a>
@@ -40,40 +39,142 @@
 
   <div class="container">
     <section class="hero main-card" aria-labelledby="hero-subtitle">
-      <!-- user name above the subtitle as requested -->
-      <!-- <div class="site-name-large">Ian Tolentino</div> -->
-
       <div class="avatar avatar-initials" aria-hidden="false">
-        <!-- If you prefer an image avatar, replace this with:
-             <img src="path/to/profile.jpg" alt="Ian Tolentino"> -->
       </div>
 
       <div class="bio">
         <div class="site-name-large">Ian Tolentino</div>
-        <div id="hero-subtitle" class="subtitle">IT Administrator · Software Developer · IT Support</div>
-        <p class="muted">Enthusiastic developer with experience in Python, web development, system maintenance and e-commerce. Always learning: cloud and security.</p>
+        <div id="hero-subtitle" class="subtitle">Full-stack Developer · IT Administrator · Software Engineer</div>
+        <p class="muted">Passionate developer with 51+ projects spanning web development, desktop applications, browser extensions, and automation tools. Specializing in Python, JavaScript, and modern full-stack technologies.</p>
 
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px">
-          <div class="kv">Location:</div><div class="muted">Mabalacat, Pampanga</div>
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="kv">Location:</span>
+            <span class="muted">Mabalacat, Pampanga</span>
+          </div>
+          <div class="info-item">
+            <span class="kv">Status:</span>
+            <span class="muted">Open to Opportunities</span>
+          </div>
+          <div class="info-item">
+            <span class="kv">Projects:</span>
+            <span class="muted">51+ Repository</span>
+          </div>
         </div>
-        <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
-          <a class="btn" href="mailto:iantolentino0110@gmail.com">Email</a>
+        
+        <div class="cta-buttons">
+          <a class="btn primary" href="projects.html">View All Projects</a>
+          <a class="btn" href="mailto:iantolentino0110@gmail.com">Email Me</a>
           <a class="btn" href="https://github.com/iantolentino" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn" href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="#" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <section class="main-card">
+      <div class="section-title">Developer Stats</div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">51+</div>
+          <div class="stat-label">Projects</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">3+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">15+</div>
+          <div class="stat-label">Technologies</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">4</div>
+          <div class="stat-label">Certifications</div>
         </div>
       </div>
     </section>
 
     <section class="main-card">
-      <div class="section-title">Quick Projects Preview</div>
+      <div class="section-title">Featured Projects</div>
       <div class="grid">
-        <div class="card"><h3>Lubaofurniture.com</h3><p class="muted">Shopify e-commerce customizations and optimizations.</p></div>
-        <div class="card"><h3>Payroll Desktop Tool</h3><p class="muted">Python payroll processing app with payslip export.</p></div>
-        <div class="card"><h3>QR Attendance</h3><p class="muted">Scanner-driven attendance solution with QR integration.</p></div>
+        <div class="card featured">
+          <div class="card-header">
+            <h3>Email Template Provider</h3>
+            <span class="tech-tag">JavaScript</span>
+          </div>
+          <p class="muted">Web app to browse, search, and copy ready-made email templates for IT, HR, Finance, and more.</p>
+          <div class="card-footer">
+            <span class="project-type">Web App</span>
+            <span class="stars">⭐ 3</span>
+          </div>
+        </div>
+        
+        <div class="card featured">
+          <div class="card-header">
+            <h3>Ephemeral Chat</h3>
+            <span class="tech-tag">WebRTC</span>
+          </div>
+          <p class="muted">Peer-to-peer chat using WebRTC — no servers, no storage, messages vanish when tab closes.</p>
+          <div class="card-footer">
+            <span class="project-type">Real-time</span>
+            <span class="stars">⭐ 2</span>
+          </div>
+        </div>
+        
+        <div class="card featured">
+          <div class="card-header">
+            <h3>Resume Manager</h3>
+            <span class="tech-tag">Flask</span>
+          </div>
+          <p class="muted">Interactive resume management web app built with Flask for managing professional profiles.</p>
+          <div class="card-footer">
+            <span class="project-type">Web App</span>
+            <span class="stars">⭐ 3</span>
+          </div>
+        </div>
+
+        <div class="card featured">
+          <div class="card-header">
+            <h3>Tomodoro</h3>
+            <span class="tech-tag">PyQt5</span>
+          </div>
+          <p class="muted">Modern productivity desktop app combining To-Do Manager, Pomodoro Timer, and Calendar.</p>
+          <div class="card-footer">
+            <span class="project-type">Desktop</span>
+            <span class="stars">⭐ 2</span>
+          </div>
+        </div>
+
+        <div class="card featured">
+          <div class="card-header">
+            <h3>Crypto Data Scraper</h3>
+            <span class="tech-tag">PySide6</span>
+          </div>
+          <p class="muted">Real-time cryptocurrency tracker with modern UI, candlestick charts, and dark/light themes.</p>
+          <div class="card-footer">
+            <span class="project-type">Desktop</span>
+            <span class="stars">⭐ 2</span>
+          </div>
+        </div>
+
+        <div class="card featured">
+          <div class="card-header">
+            <h3>File Organizer</h3>
+            <span class="tech-tag">Python</span>
+          </div>
+          <p class="muted">CLI tool that sorts files into categories, handles duplicates, and includes watch mode.</p>
+          <div class="card-footer">
+            <span class="project-type">CLI Tool</span>
+            <span class="stars">⭐ 4</span>
+          </div>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 20px;">
+        <a class="btn" href="projects.html">View All 51 Projects</a>
       </div>
     </section>
 
-    <!-- <footer>© 2025 Ian Tolentino </footer> -->
   </div>
 
   <script src="main.js"></script>
