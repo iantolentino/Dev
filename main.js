@@ -1,4 +1,4 @@
-// main.js (updated for new navigation)
+// main.js (simplified - no hamburger)
 (function(){
   const fullName = 'Ian Tolentino';
   const initials = (fullName.split(' ').map(n=>n[0]).slice(0,2).join('').toUpperCase()) || 'IT';
@@ -8,38 +8,6 @@
     el.textContent = initials;
     el.setAttribute('aria-label', fullName);
   });
-
-  const hamburger = document.getElementById('hamburgerBtn');
-  const mobileNav = document.getElementById('mobileNav');
-  const container = document.querySelector('.container');
-
-  function isMobileView(){ return window.matchMedia('(max-width:980px)').matches; }
-
-  function openMobile(){
-    if(!isMobileView()) return;
-    mobileNav.classList.add('show');
-    container.style.filter = 'blur(8px)';
-    document.body.style.overflow = 'hidden';
-  }
-  function closeMobile(){
-    mobileNav.classList.remove('show');
-    container.style.filter = '';
-    document.body.style.overflow = '';
-  }
-  function toggleMobile(){
-    if(mobileNav.classList.contains('show')) closeMobile(); else openMobile();
-  }
-
-  if(hamburger){
-    hamburger.addEventListener('click', (e)=>{ e.preventDefault(); toggleMobile(); });
-  }
-  if(mobileNav){
-    mobileNav.addEventListener('click', (e)=>{ if(e.target === mobileNav) closeMobile(); });
-    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', ()=> closeMobile()));
-  }
-
-  // close mobile nav when resizing up
-  window.addEventListener('resize', ()=>{ if(!isMobileView()) closeMobile(); });
 
   // smooth scroll for same-page anchors
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
