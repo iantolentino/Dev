@@ -23,16 +23,9 @@ a{color:inherit; text-decoration: none}
 
 /* Header */
 .header{height:var(--nav-h);display:flex;align-items:center;justify-content:center;gap:16px;position:relative}
-nav.primary{display:flex;gap:12px;align-items:center}
-nav.primary a{padding:10px 12px;border-radius:10px;color:var(--text);text-decoration:none;font-weight:600;transition:all .18s}
+nav.primary{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:center}
+nav.primary a{padding:10px 12px;border-radius:10px;color:var(--text);text-decoration:none;font-weight:600;transition:all .18s;white-space:nowrap}
 nav.primary a.active, nav.primary a:hover{background:var(--glass);border:1px solid rgba(255,255,255,0.04);color:var(--accent);transform:translateY(-3px)}
-.controls{display:flex;gap:8px;align-items:center;position:absolute;right:0}
-
-/* Hide mobile menu container by default on large screens */
-.menu{display:none}
-
-/* hamburger hidden by default on large screens */
-.hamburger{display:none;background:transparent;border:0;color:var(--text);font-size:20px; cursor: pointer}
 
 /* Hero */
 .hero{display:flex;gap:28px;align-items:center;padding:22px 0;animation:fadeUp .4s both}
@@ -268,17 +261,23 @@ footer{padding:18px 0;color:var(--muted);text-align:center}
   background: linear-gradient(135deg, var(--panel), rgba(88, 166, 255, 0.05));
 }
 
+/* Responsive Design - No Hamburger */
 @media (max-width:980px){
   .hero{flex-direction:column;align-items:center;text-align:center}
-  /* show hamburger on small and hide desktop nav */
-  .hamburger{display:inline-flex}
-  nav.primary{display:none}
-  /* show mobile menu on small screens */
-  .menu{display:flex;flex-direction:column;gap:10px;align-items:center}
-  .mobile-nav{position:fixed;left:0;top:0;right:0;bottom:0;background:rgba(2,6,23,0.75);display:none;z-index:60;align-items:center;justify-content:center}
-  .mobile-nav.show{display:flex}
-  .mobile-nav .menu{background:linear-gradient(180deg,var(--panel),rgba(255,255,255,0.02));padding:18px;border-radius:12px;min-width:240px}
-  .mobile-nav a{padding:12px;border-radius:8px;color:var(--text)}
+  
+  nav.primary {
+    gap: 8px;
+  }
+  
+  nav.primary a {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+  
+  .header {
+    height: auto;
+    padding: 16px 0;
+  }
   
   .info-grid {
     grid-template-columns: 1fr;
@@ -301,20 +300,21 @@ footer{padding:18px 0;color:var(--muted);text-align:center}
     grid-template-columns: 1fr;
   }
 }
-@media (min-width:981px){
-  /* ensure mobile .menu is hidden on large screens */
-  .menu{display:none !important}
-  /* center nav.primary absolutely in header on large screens */
-  nav.primary{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;gap:16px}
-  .controls{right:20px}
-}
-@media (max-width:420px){
+
+@media (max-width:480px){
+  nav.primary a {
+    padding: 6px 8px;
+    font-size: 0.85rem;
+  }
+  
   .avatar{width:136px;height:136px;font-size:34px}
   .site-name-large{font-size:22px}
+  .bio .subtitle{font-size:0.9rem}
   .stats-grid {
     grid-template-columns: 1fr;
   }
 }
+
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .grid .card{opacity:0;transform:translateY(6px);animation:cardIn .45s forwards;animation-delay:calc(var(--i)*0.05s)}
 @keyframes cardIn{to{opacity:1;transform:none}}
