@@ -66,6 +66,7 @@ nav.primary a.active, nav.primary a:hover{background:var(--glass);border:1px sol
 .btn {
   padding: 10px 18px;
   border-radius: 8px;
+  margin: 5px;
   border: 1px solid rgba(255,255,255,0.1);
   background: var(--glass);
   color: var(--text);
@@ -318,4 +319,5 @@ footer{padding:18px 0;color:var(--muted);text-align:center}
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .grid .card{opacity:0;transform:translateY(6px);animation:cardIn .45s forwards;animation-delay:calc(var(--i)*0.05s)}
 @keyframes cardIn{to{opacity:1;transform:none}}
+
 a:focus, button:focus, input:focus, textarea:focus{outline:3px solid rgba(88,166,255,0.12);outline-offset:2px}
