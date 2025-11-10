@@ -21,7 +21,7 @@
   <div class="container">
   <section class="main-card">
       <div class="section-title">My Projects <span id="projectCount" class="project-count">(63)</span></div>
-      <p class="muted" style="margin-bottom: 20px;">A comprehensive collection of 63 personal, academic, and professional projects showcasing expertise across web development, desktop applications, automation tools, and browser extensions.</p>
+      <p class="muted" style="margin-bottom: 20px;">Collection of personal, academic, and professional projects showcasing expertise across web development, desktop applications, automation tools, and browser extensions.</p>
       
       <div class="project-filters">
         <button class="filter-btn active" data-filter="all">All Projects</button>
@@ -1566,7 +1566,7 @@
       </div>
     </section>
 
-    <footer>© 2025 Ian Tolentino | 52 Projects and Growing</footer>
+    <footer>© 2025 Ian Tolentino</footer>
   </div>
 
   <script>
@@ -1585,7 +1585,7 @@
       function updateProjectCount(filter = 'all') {
         const count = filter === 'all' ? projectCards.length : 
           Array.from(projectCards).filter(card => card.getAttribute('data-category').includes(filter)).length;
-        projectCount.textContent = `(${count} Projects)`;
+        projectCount.textContent = `(${count})`;
         return count;
       }
       
@@ -1680,4 +1680,5 @@
 </body>
 
 </html>
+
 
