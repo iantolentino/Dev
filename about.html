@@ -1,3 +1,4 @@
+<!-- about.html -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -25,11 +26,11 @@
   <div class="container header">
       <nav class="primary" aria-label="Primary navigation">
         <a href="index.html">About Me</a>
-        <a href="projects.html">Projects</a> <!-- active class changes per page -->
+        <a href="projects.html">Projects</a>
         <a href="skills.html">Skills</a>
         <a href="experience.html">Experience</a>
       </nav>
-          <div class="header-controls">
+      <div class="header-controls">
         <div class="theme-switch-container">
             <label class="theme-switch">
                 <input type="checkbox">
@@ -39,24 +40,50 @@
         </div>
     </div>
   </div>
+  
   <div class="container">
     <section class="main-card">
-      <div class="section-title">Competitions & Achievements</div>
-      <div class="grid-4">
-        <div class="card">
-          <h3>Selected Highlights</h3>
-          <ul style="margin-top:8px;padding-left:18px;color:var(--muted)">
-            <li>Philippine Start-up Challenge — Regional Pitch (Oct 2023)</li>
-            <li>PSAU Creativity & Innovation Day — Pitch (Apr 2024)</li>
-            <li>TOPCIT — Level 4 IT Competency (Apr 2024)</li>
-            <li>DICT Programming Course — Accredited (Sept 2024)</li>
-          </ul>
-        </div>
+      <div class="section-title">About Me</div>
+      
+      <div class="about-content">
+        <p class="about-text">
+          &nbsp;&nbsp;&nbsp;&nbsp;I'm an <span class="highlight">aspiring developer</span> passionate about creating solutions through code, with experience in <span class="highlight">web development</span>, desktop applications, and automation tools that solve real problems. My journey in technology began with curiosity about how software can improve everyday tasks and workflows. I enjoy the process of turning ideas into functional applications that make a difference.
+        </p>
+        
+        <p class="about-text">
+          &nbsp;&nbsp;&nbsp;&nbsp;I focus on writing <span class="highlight">clean, maintainable code</span> and believe in continuous learning to stay current with evolving technologies while building a strong foundation in development fundamentals. Each project is an opportunity to grow my skills and understanding of best practices in software engineering. I'm committed to creating solutions that are not only functional but also well-structured and easy to understand.
+        </p>
+        
+        <p class="about-text">
+          &nbsp;&nbsp;&nbsp;&nbsp;Beyond technical skills, I value <span class="highlight">collaboration</span> and creating software that balances functionality with intuitive user experiences to make technology more accessible and effective. I believe that great software comes from understanding user needs and working together to find the best solutions. My goal is to contribute to projects that have meaningful impact while continuing to develop as a professional.
+        </p>
       </div>
     </section>
-
-    <footer>© 2025 Ian Tolentino</footer>
   </div>
+
+  <style>
+    .about-content {
+      margin: 0 40px;
+    }
+    
+    .about-text {
+      color: var(--muted);
+      margin-bottom: 28px;
+      line-height: 1.7;
+      font-size: 1.1rem;
+      text-align: justify;
+      text-indent: 40px;
+    }
+    
+    .highlight {
+      color: #4da6ff;
+      font-weight: 600;
+    }
+    
+    [data-theme="dark"] .highlight {
+      color: #6cb6ff;
+    }
+  </style>
 
   <script src="main.js"></script>
 </body>
