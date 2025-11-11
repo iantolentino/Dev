@@ -1,4 +1,4 @@
-// main.js (enhanced with room-style theme switch)
+// main.js (enhanced with room-style theme switch - FIXED)
 (function(){
   const fullName = 'Ian Tolentino';
   const initials = (fullName.split(' ').map(n=>n[0]).slice(0,2).join('').toUpperCase()) || 'IT';
@@ -6,16 +6,16 @@
   // Theme management
   function initTheme() {
     const savedTheme = localStorage.getItem('theme');
-    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
     
     // Default to light mode as requested
     if (!savedTheme) {
       document.documentElement.setAttribute('data-theme', 'light');
-      updateThemeSwitch('light');
     } else {
       document.documentElement.setAttribute('data-theme', savedTheme);
-      updateThemeSwitch(savedTheme);
     }
+    
+    // Update switch after it's created
+    setTimeout(updateThemeSwitch, 100);
   }
 
   function toggleTheme() {
@@ -24,13 +24,14 @@
     
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
-    updateThemeSwitch(newTheme);
+    updateThemeSwitch();
   }
 
-  function updateThemeSwitch(theme) {
+  function updateThemeSwitch() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
     const switchInput = document.querySelector('.theme-switch input');
     if (switchInput) {
-      switchInput.checked = theme === 'dark';
+      switchInput.checked = currentTheme === 'dark';
     }
   }
 
@@ -55,7 +56,7 @@
     
     const switchLabel = document.createElement('span');
     switchLabel.className = 'switch-label';
-    switchLabel.textContent = 'Dark Mode';
+    switchLabel.textContent = '';
     switchLabel.style.color = 'var(--text)';
     switchLabel.style.fontSize = '0.9rem';
     switchLabel.style.fontWeight = '600';
@@ -67,8 +68,8 @@
     const checkbox = themeSwitch.querySelector('input');
     checkbox.addEventListener('change', toggleTheme);
     
-    // Initialize switch state
-    updateThemeSwitch(document.documentElement.getAttribute('data-theme'));
+    // Initialize switch state immediately
+    updateThemeSwitch();
     
     header.appendChild(themeSwitchContainer);
   }
