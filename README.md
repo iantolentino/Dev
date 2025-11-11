@@ -19,7 +19,6 @@ portfolio/
 ├── projects.html       # Projects showcase (52 projects)
 ├── skills.html         # Technical skills and proficiencies
 ├── experience.html     # Professional experience and education
-├── contact.html        # Contact form and information
 ├── styles.css          # Main stylesheet
 ├── main.js             # JavaScript functionality
 └── assets/
