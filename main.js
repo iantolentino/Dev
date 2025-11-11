@@ -1,4 +1,4 @@
-// main.js (enhanced with theme toggle and 4-column support)
+// main.js (enhanced with room-style theme switch)
 (function(){
   const fullName = 'Ian Tolentino';
   const initials = (fullName.split(' ').map(n=>n[0]).slice(0,2).join('').toUpperCase()) || 'IT';
@@ -11,10 +11,10 @@
     // Default to light mode as requested
     if (!savedTheme) {
       document.documentElement.setAttribute('data-theme', 'light');
-      updateThemeToggle('light');
+      updateThemeSwitch('light');
     } else {
       document.documentElement.setAttribute('data-theme', savedTheme);
-      updateThemeToggle(savedTheme);
+      updateThemeSwitch(savedTheme);
     }
   }
 
@@ -24,41 +24,53 @@
     
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
-    updateThemeToggle(newTheme);
+    updateThemeSwitch(newTheme);
   }
 
-  function updateThemeToggle(theme) {
-    const toggle = document.querySelector('.theme-toggle');
-    if (toggle) {
-      const icon = toggle.querySelector('.theme-icon');
-      const text = toggle.querySelector('.theme-text');
-      
-      if (theme === 'light') {
-        icon.textContent = '🌙';
-        text.textContent = 'Dark Mode';
-      } else {
-        icon.textContent = '☀️';
-        text.textContent = 'Light Mode';
-      }
+  function updateThemeSwitch(theme) {
+    const switchInput = document.querySelector('.theme-switch input');
+    if (switchInput) {
+      switchInput.checked = theme === 'dark';
     }
   }
 
   // Initialize theme
   initTheme();
 
-  // Add theme toggle to header
+  // Add theme switch to header
   const header = document.querySelector('.header');
   if (header) {
-    const themeToggle = document.createElement('button');
-    themeToggle.className = 'theme-toggle';
-    themeToggle.innerHTML = `
-      <span class="theme-icon">🌙</span>
-      <span class="theme-text">Dark Mode</span>
-    `;
-    themeToggle.addEventListener('click', toggleTheme);
+    const themeSwitchContainer = document.createElement('div');
+    themeSwitchContainer.className = 'theme-switch-container';
+    themeSwitchContainer.style.display = 'flex';
+    themeSwitchContainer.style.alignItems = 'center';
+    themeSwitchContainer.style.gap = '10px';
     
-    // Add toggle to header (right side)
-    header.appendChild(themeToggle);
+    const themeSwitch = document.createElement('label');
+    themeSwitch.className = 'theme-switch';
+    themeSwitch.innerHTML = `
+      <input type="checkbox">
+      <span class="slider"></span>
+    `;
+    
+    const switchLabel = document.createElement('span');
+    switchLabel.className = 'switch-label';
+    switchLabel.textContent = 'Dark Mode';
+    switchLabel.style.color = 'var(--text)';
+    switchLabel.style.fontSize = '0.9rem';
+    switchLabel.style.fontWeight = '600';
+    
+    themeSwitchContainer.appendChild(themeSwitch);
+    themeSwitchContainer.appendChild(switchLabel);
+    
+    // Add event listener to the checkbox
+    const checkbox = themeSwitch.querySelector('input');
+    checkbox.addEventListener('change', toggleTheme);
+    
+    // Initialize switch state
+    updateThemeSwitch(document.documentElement.getAttribute('data-theme'));
+    
+    header.appendChild(themeSwitchContainer);
   }
 
   // set avatar initials
