@@ -1,4 +1,4 @@
-// main.js (enhanced with room-style theme switch - FIXED)
+// main.js (updated for fixed theme toggle position)
 (function(){
   const fullName = 'Ian Tolentino';
   const initials = (fullName.split(' ').map(n=>n[0]).slice(0,2).join('').toUpperCase()) || 'IT';
@@ -38,40 +38,14 @@
   // Initialize theme
   initTheme();
 
-  // Add theme switch to header
-  const header = document.querySelector('.header');
-  if (header) {
-    const themeSwitchContainer = document.createElement('div');
-    themeSwitchContainer.className = 'theme-switch-container';
-    themeSwitchContainer.style.display = 'flex';
-    themeSwitchContainer.style.alignItems = 'center';
-    themeSwitchContainer.style.gap = '10px';
-    
-    const themeSwitch = document.createElement('label');
-    themeSwitch.className = 'theme-switch';
-    themeSwitch.innerHTML = `
-      <input type="checkbox">
-      <span class="slider"></span>
-    `;
-    
-    const switchLabel = document.createElement('span');
-    switchLabel.className = 'switch-label';
-    switchLabel.textContent = '';
-    switchLabel.style.color = 'var(--text)';
-    switchLabel.style.fontSize = '0.9rem';
-    switchLabel.style.fontWeight = '600';
-    
-    themeSwitchContainer.appendChild(themeSwitch);
-    themeSwitchContainer.appendChild(switchLabel);
-    
-    // Add event listener to the checkbox
+  // Add event listener to existing theme switch
+  const themeSwitch = document.querySelector('.theme-switch');
+  if (themeSwitch) {
     const checkbox = themeSwitch.querySelector('input');
     checkbox.addEventListener('change', toggleTheme);
     
     // Initialize switch state immediately
     updateThemeSwitch();
-    
-    header.appendChild(themeSwitchContainer);
   }
 
   // set avatar initials
