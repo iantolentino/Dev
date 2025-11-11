@@ -8,6 +8,20 @@
   <title>Skills — Ian Tolentino</title>
   <link rel="icon" href="assets/favicon.png" type="image/x-icon" />
   <link rel="stylesheet" href="styles.css">
+    <script>
+    // Prevent flash of wrong theme
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      
+      // Set theme immediately to prevent flash
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
 </head>
 <body>
   <div class="container header">
