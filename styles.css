@@ -11,9 +11,10 @@
   --success-light: #28a745;
   --warning-light: #ffc107;
   --error-light: #dc3545;
-  --outline-light: rgba(0, 0, 0, 0.1);
+  --outline-light: rgba(0, 0, 0, 0.15); /* Darker outline for light mode */
+  --outline-hover-light: #007bff; /* Blue outline on hover */
   
-  /* Dark mode colors (your existing theme) */
+  /* Dark mode colors */
   --bg-dark: #0d1117;
   --panel-dark: #0f1724;
   --muted-dark: #98a0aa;
@@ -24,7 +25,8 @@
   --success-dark: #3fb950;
   --warning-dark: #d29922;
   --error-dark: #f85149;
-  --outline-dark: rgba(255, 255, 255, 0.1);
+  --outline-dark: rgba(255, 255, 255, 0.15); /* Lighter outline for dark mode */
+  --outline-hover-dark: #58a6ff; /* Blue outline on hover */
   
   /* Default to light mode */
   --bg: var(--bg-light);
@@ -38,9 +40,10 @@
   --warning: var(--warning-light);
   --error: var(--error-light);
   --outline: var(--outline-light);
+  --outline-hover: var(--outline-hover-light);
   
   --radius: 12px;
-  --container-w: 1400px; /* Wider container */
+  --container-w: 1400px;
   --nav-h: 76px;
   --max-mobile-width: 980px;
 }
@@ -57,6 +60,7 @@
   --warning: var(--warning-dark);
   --error: var(--error-dark);
   --outline: var(--outline-dark);
+  --outline-hover: var(--outline-hover-dark);
 }
 
 * {
@@ -143,7 +147,7 @@ nav.primary a.active, nav.primary a:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(145deg, #6b7280, #9ca3af);
+  background: linear-gradient(145deg, #0056b3);
   transition: .4s;
   border-radius: 34px;
   border: 2px solid var(--outline);
@@ -163,12 +167,12 @@ nav.primary a.active, nav.primary a:hover {
 }
 
 input:checked + .slider {
-  background: linear-gradient(145deg, #1e40af, #3b82f6);
+  background: linear-gradient(145deg, #0056b3)
 }
 
 input:checked + .slider:before {
   transform: translateX(26px);
-  background: #fef08a;
+  background: white;
 }
 
 /* 4-Column Layout */
@@ -261,6 +265,8 @@ input:checked + .slider:before {
 .btn {
   padding: 10px 18px;
   border-radius: 8px;
+  margin-top: 15px;
+  margin-bottom: 15px;
   border: 1px solid var(--outline);
   background: var(--glass);
   color: var(--text);
@@ -326,14 +332,14 @@ input:checked + .slider:before {
 /* Layout card - Wider and with outlines */
 .main-card {
   background: var(--panel);
-  border: 1px solid var(--outline);
+  border: 1px solid var(--outline); /* Always visible outline */
   padding: 28px;
   border-radius: 16px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
   margin-bottom: 24px;
   animation: fadeUp 0.36s both;
+  transition: border-color 0.3s ease; /* Smooth transition for hover */
 }
-
 .section-title {
   font-size: 22px;
   color: var(--text);
@@ -353,16 +359,15 @@ input:checked + .slider:before {
   background: var(--panel);
   padding: 20px;
   border-radius: 12px;
-  border: 1px solid var(--outline);
-  transition: transform 0.18s, box-shadow 0.18s;
+  border: 1px solid var(--outline); /* Always visible outline */
+  transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
 }
 
 .card:hover {
   transform: translateY(-6px);
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.15);
-  border-color: var(--accent);
+  border-color: var(--outline-hover); /* Blue outline on hover */
 }
-
 .card h3 {
   color: var(--accent);
   margin-bottom: 8px;
