@@ -9,6 +9,20 @@
   <title>About Me — Ian Tolentino</title>
   <link rel="icon" href="assets/favicon.png" type="image/x-icon" /> 
   <link rel="stylesheet" href="styles.css">
+    <script>
+    // Prevent flash of wrong theme
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      
+      // Set theme immediately to prevent flash
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
 </head>
 <body>
   <div class="container header">
@@ -20,57 +34,43 @@
       </nav>
   </div>
   <div class="container">
-    <section class="hero main-card" aria-labelledby="hero-subtitle">
-     <div class="avatar">
-        <img src="assets/avatar.jpg" alt="Ian Tolentino">
-      </div>
+   <section class="hero main-card" aria-labelledby="hero-subtitle">
+  <div class="avatar">
+    <img src="assets/avatar.jpg" alt="Ian Tolentino">
+  </div>
 
-      <div class="bio">
-        <div class="site-name-large">Ian Tolentino</div>
-        <div id="hero-subtitle" class="subtitle">Full-stack Developer · IT Administrator · Software Engineer</div>
-        <p class="muted">Passionate developer spanning web development, desktop applications, browser extensions, and automation tools. Specializing in Python, JavaScript, and modern full-stack technologies with professional IT support experience.</p>
+  <div class="bio">
+    <div class="site-name-large">Ian Tolentino</div>
+    <div id="hero-subtitle" class="subtitle">Full-stack Developer · IT Administrator · Software Engineer</div>
+    <p class="muted">Passionate developer spanning web development, desktop applications, browser extensions, and automation tools. Specializing in Python, JavaScript, and modern full-stack technologies with professional IT support experience.</p>
 
-        <div class="info-grid">
-          <div class="info-item">
-            <span class="kv">Location:</span>
-            <span class="muted">Mabalacat, Pampanga</span>
-          </div>
-          <div class="info-item">
-            <span class="kv">Status:</span>
-            <span class="muted">Open to Opportunities</span>
-          </div>
-        </div>
-        
-        <div class="cta-buttons">
-          <a class="btn primary" href="projects.html">View All Projects</a>
-          <a class="btn" href="mailto:iantolentino0110@gmail.com">Email Me</a>
-          <a class="btn" href="https://github.com/iantolentino" target="_blank" rel="noopener">GitHub</a>
-        </div>
+    <div class="cta-buttons">
+      <a class="btn primary" href="projects.html">View All Projects</a>
+      <a class="btn" href="mailto:iantolentino0110@gmail.com">Email Me</a>
+      <a class="btn" href="https://github.com/iantolentino" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    
+    <!-- Stats -->
+    <div class="grid">
+      <div class="stat-card">
+        <div class="stat-number">63+</div>
+        <div class="stat-label">Projects</div>
       </div>
-    </section>
-
-    <!-- Quick Stats -->
-    <section class="main-card">
-      <div class="section-title">Developer Stats</div>
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-number">63+</div>
-          <div class="stat-label">Projects</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">2+</div>
-          <div class="stat-label">Years Experience</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">25+</div>
-          <div class="stat-label">Technologies</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">4</div>
-          <div class="stat-label">Certifications</div>
-        </div>
+      <div class="stat-card">
+        <div class="stat-number">2+</div>
+        <div class="stat-label">Years Experience</div>
       </div>
-    </section>
+      <div class="stat-card">
+        <div class="stat-number">25+</div>
+        <div class="stat-label">Technologies</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">4</div>
+        <div class="stat-label">Certifications</div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <section class="main-card">
       <div class="section-title">Featured Projects</div>
