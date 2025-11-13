@@ -639,59 +639,6 @@ footer {
   background: linear-gradient(135deg, var(--panel), rgba(88, 166, 255, 0.05));
 }
 
-/* Skills Grid - 4 columns */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.skills-column {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.skills-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.skill-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.skill-name {
-  font-weight: 600;
-  color: var(--text);
-  flex: 1;
-}
-
-.skill-level {
-  width: 100px;
-  height: 6px;
-  background: var(--glass);
-  border-radius: 3px;
-  overflow: hidden;
-  border: 1px solid var(--outline);
-}
-
-.skill-bar {
-  height: 100%;
-  background: var(--accent);
-  border-radius: 3px;
-  transition: width 0.3s ease;
-}
-
-.skills-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
 .tech-tag.learning {
   background: rgba(255, 193, 7, 0.1);
   color: var(--warning);
@@ -1060,4 +1007,5 @@ footer {
 a:focus, button:focus, input:focus, textarea:focus {
   outline: 3px solid var(--accent);
   outline-offset: 2px;
+
 }
