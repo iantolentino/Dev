@@ -1,166 +1,91 @@
-<!-- experience.html (updated with responsive design) -->
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="author-name" content="Ian Tolentino">
-  <meta name="description" content="Professional experience in IT support, system administration, and software development">
-  <title>Expertise — Ian Tolentino</title>
+  <meta name="description" content="Professional experience and technical skills in IT support, system administration, and software development">
+  <title>Expertise & Journey — Ian Tolentino</title>
   <link rel="icon" href="assets/favicon.png" type="image/x-icon" />
   <link rel="stylesheet" href="styles.css">
-  <script>
-    // Prevent flash of wrong theme
-    (function() {
-      const savedTheme = localStorage.getItem('theme');
-      const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-      
-      // Set theme immediately to prevent flash
-      if (savedTheme) {
-        document.documentElement.setAttribute('data-theme', savedTheme);
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-      }
-    })();
-  </script>
-</head>
-<body>
-<div class="container header">
-  <nav class="primary" aria-label="Primary navigation">
-    <!-- Home button with icon -->
-    <a href="index.html" class="home-button">
-      <img src="assets/favicon.png" alt="Home" class="home-icon">
-    </a>
-    
-    <!-- Centered navigation links -->
-    <div class="nav-links">
-      <a href="about.html">
-        <img src="assets/about.png" alt="About Me" class="nav-icon">
-        <span class="nav-text">About Me</span>
-      </a>
-      <a href="projects.html">
-        <img src="assets/projects.png" alt="Projects" class="nav-icon">
-        <span class="nav-text">Projects</span>
-      </a> 
-      <a href="expertise.html">
-        <img src="assets/experience.png" alt="Experience" class="nav-icon">
-        <span class="nav-text">Expertise</span>
-      </a>
-    </div>
-  </nav>
-  
-  <!-- Theme toggle remains on the right -->
-  <div class="header-controls">
-    <div class="theme-switch-container">
-      <label class="theme-switch">
-        <input type="checkbox">
-        <span class="slider"></span>
-      </label>
-      <span class="switch-label"></span>
-    </div>
-  </div>
-</div>
-  <div class="container">
-    <section class="main-card">
-      <div class="section-title">Professional Experience</div>
-      
-      <div class="grid-4">
-        <div class="card experience-card">
-          <div class="experience-header">
-            <h3>IT Technical Support Staff</h3>
-            <div class="company-period">
-              <span class="company">Nanox Philippines, Inc.</span>
-              <span class="period">June 2025 - Present</span>
-            </div>
-            <span class="location">Mabalacat, Pampanga</span>
-          </div>
-          
-          <div class="achievements">
-            <h4>Key Achievements & Responsibilities:</h4>
-            <ul class="achievement-list">
-              <li>Reduced average ticket resolution time by introducing standardized troubleshooting steps and knowledge base articles</li>
-              <li>Monitored and maintained 100+ PCs, ensuring >99% availability for critical workstations during business hours</li>
-              <li class="detail-item">Implemented automation scripts for bulk user provisioning and reporting tasks</li>
-              <li class="detail-item">Created Radmin automation for server monitoring and maintenance</li>
-              <li class="detail-item">Led in-house training sessions for end-users, improving Office productivity and reducing repetitive support tickets</li>
-              <li class="detail-item">Assisted in improving internal web applications' reliability by identifying and reporting recurring errors to developers</li>
-            </ul>
-            <button class="btn see-details-btn" data-target="details-1">See Details</button>
-            <div id="details-1" class="additional-details" style="display: none;">
-              <ul class="achievement-list">
-                <li>Implemented automation scripts for bulk user provisioning and reporting tasks</li>
-                <li>Created Radmin automation for server monitoring and maintenance</li>
-                <li>Led in-house training sessions for end-users, improving Office productivity and reducing repetitive support tickets</li>
-                <li>Assisted in improving internal web applications' reliability by identifying and reporting recurring errors to developers</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="technologies-used">
-          
-          </div>
-        </div>
-
-        <div class="card experience-card">
-          <div class="experience-header">
-            <h3>IT Support / Developer — Internship</h3>
-            <div class="company-period">
-              <span class="company">Various Projects & Freelance</span>
-              <span class="period">January 2025 — April 2025</span>
-            </div>
-            <span class="location">Lubao, Pampanga</span>
-          </div>
-          
-          <div class="achievements">
-            <h4>Key Responsibilities:</h4>
-            <ul class="achievement-list">
-              <li>Resolved hardware/software issues across multiple environments</li>
-              <li>Installed and configured CCTV systems for security monitoring</li>
-              <li>Organized large digital archives and implemented efficient data management systems</li>
-              <li>Assisted in inventory management and maintained e-commerce backends</li>
-              <li>Developed automation tools to streamline IT operations</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="card experience-card">
-          <div class="experience-header">
-            <h3>Education</h3>
-            <div class="company-period">
-              <span class="company">Pampanga State Agricultural University</span>
-              <span class="period">2021 — 2025</span>
-            </div>
-          </div>
-          <p class="muted"><strong>Bachelor of Science in Information Technology</strong></p>
-          <ul class="achievement-list">
-            <li>Graduated with comprehensive knowledge in software development, networking, and system administration</li>
-            <li>Completed capstone projects in adaptive brightness systems and productivity applications</li>
-            <li>Participated in multiple programming competitions and innovation challenges</li>
-          </ul>
-        </div>
-
-        <div class="card experience-card">
-          <div class="experience-header">
-            <h3>Competitions & Achievements</h3>
-            <div class="company-period">
-              <span class="company">Pampanga State Agricultural University</span>
-              <span class="period">2021 — 2025</span>
-            </div>
-          <p class="muted"><strong>Bachelor of Science in Information Technology</strong></p>
-          </div>
-          <ul class="achievement-list">
-            <li>Philippine Start-up Challenge — Regional Pitch (Oct 2023)</li>
-            <li>PSAU Creativity & Innovation Day — Pitch (Apr 2024)</li>
-            <li>TOPCIT — Level 4 IT Competency (Apr 2024)</li>
-            <li>DICT Programming Course — Accredited (Sept 2024)</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-  </div>
-
   <style>
+    /* Page-specific styles for expertise.html */
+    .tab-navigation {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tab-button {
+      padding: 12px 24px;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s;
+    }
+
+    .tab-button:hover {
+      color: var(--primary);
+    }
+
+    .tab-button.active {
+      color: var(--primary);
+    }
+
+    .tab-button.active:after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: var(--primary);
+      border-radius: 3px 3px 0 0;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Experience Cards */
+    .experience-card {
+      background-color: var(--card-bg);
+      border-radius: 10px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 10px var(--shadow);
+      border-left: 4px solid var(--primary);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .experience-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px var(--shadow);
+    }
+
     .experience-header {
       margin-bottom: 16px;
+    }
+
+    .experience-header h3 {
+      font-size: 1.3rem;
+      color: var(--text);
+      margin-bottom: 8px;
     }
 
     .company-period {
@@ -180,6 +105,9 @@
     .period {
       color: var(--muted);
       font-size: 0.9rem;
+      background: var(--light);
+      padding: 4px 8px;
+      border-radius: 4px;
     }
 
     .location {
@@ -193,7 +121,7 @@
 
     .achievements h4 {
       color: var(--text);
-      margin-bottom: 8px;
+      margin-bottom: 12px;
       font-size: 1rem;
     }
 
@@ -205,10 +133,11 @@
 
     .achievement-list li {
       color: var(--muted);
-      padding: 6px 0;
-      padding-left: 20px;
+      padding: 8px 0;
+      padding-left: 24px;
       position: relative;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
     }
 
     .achievement-list li:before {
@@ -217,38 +146,23 @@
       position: absolute;
       left: 0;
       font-weight: bold;
-    }
-
-    .achievement-list li.detail-item {
-      display: none;
-    }
-
-    .technologies-used {
-      margin-top: 16px;
-    }
-
-    .technologies-used h4 {
-      color: var(--text);
-      margin-bottom: 8px;
-      font-size: 1rem;
-    }
-
-    .tech-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .tech-tag.soft-skill {
-      background: rgba(63, 185, 80, 0.1);
-      color: var(--success);
-      border-color: rgba(63, 185, 80, 0.3);
+      font-size: 1.1rem;
     }
 
     .see-details-btn {
       margin-top: 12px;
       font-size: 0.85rem;
-      padding: 6px 12px;
+      padding: 8px 16px;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .see-details-btn:hover {
+      background-color: var(--primary-light);
     }
 
     .additional-details {
@@ -256,41 +170,555 @@
       animation: fadeIn 0.3s ease-in;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
 
+    .skills-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .skill-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .skill-name {
+      font-weight: 600;
+      color: var(--text);
+      flex: 1;
+    }
+
+    .skill-level {
+      width: 100px;
+      height: 6px;
+      background: var(--light);
+      border-radius: 3px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .skill-bar {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
+
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* Vertical Timeline for Experience */
+    .vertical-timeline {
+      position: relative;
+      max-width: 100%;
+    }
+
+    .vertical-timeline:before {
+      content: '';
+      position: absolute;
+      left: 30px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--primary);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 40px;
+      padding-left: 60px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 22px;
+      top: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--primary);
+      z-index: 1;
+    }
+
+    /* Header adjustments for mobile */
     @media (max-width: 768px) {
+      .header {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+      }
+      
+      .primary {
+        flex: 1;
+      }
+      
+      .home-button {
+        margin-right: 10px;
+      }
+      
+      .nav-links {
+        justify-content: center;
+        flex: 1;
+      }
+      
+      .header-controls {
+        position: static;
+        transform: none;
+        margin-left: auto;
+      }
+      
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
       .company-period {
         flex-direction: column;
         align-items: flex-start;
       }
-      
-      .tech-tags {
-        gap: 6px;
-      }
-      
-      .tech-tag {
-        font-size: 0.8rem;
-        padding: 3px 6px;
-      }
     }
 
-    @media (max-width: 480px) {
-      .experience-header h3 {
-        font-size: 1.1rem;
+    @media (max-width: 576px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
       }
       
-      .achievement-list li {
-        font-size: 0.85rem;
+      .tab-navigation {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .tab-button {
+        width: 100%;
+        text-align: center;
       }
     }
   </style>
+  <script>
+    // Prevent flash of wrong theme
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      
+      // Set theme immediately to prevent flash
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+</head>
+<body>
+  <div class="container header">
+    <nav class="primary" aria-label="Primary navigation">
+      <!-- Home button with icon -->
+      <a href="index.html" class="home-button">
+        <img src="assets/favicon.png" alt="Home" class="home-icon">
+      </a>
+      
+      <!-- Centered navigation links -->
+      <div class="nav-links">
+        <a href="about.html">
+          <img src="assets/about.png" alt="About Me" class="nav-icon">
+          <span class="nav-text">About Me</span>
+        </a>
+        <a href="projects.html">
+          <img src="assets/projects.png" alt="Projects" class="nav-icon">
+          <span class="nav-text">Projects</span>
+        </a> 
+        <a href="expertise.html">
+          <img src="assets/experience.png" alt="Expertise" class="nav-icon">
+          <span class="nav-text">Experience</span>
+        </a>
+      </div>
+    </nav>
+    
+    <!-- Theme toggle remains on the right -->
+    <div class="header-controls">
+      <div class="theme-switch-container">
+        <label class="theme-switch">
+          <input type="checkbox">
+          <span class="slider"></span>
+        </label>
+        <span class="switch-label"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="main-card">
+      <div class="section-title">Expertise & Journey</div>
+      
+      <!-- Tab Navigation -->
+      <div class="tab-navigation">
+        <button class="tab-button active" data-tab="experience">Professional Journey</button>
+        <button class="tab-button" data-tab="skills">Technical Expertise</button>
+      </div>
+      
+      <!-- Experience Tab -->
+      <div id="experience" class="tab-content active">
+        <div class="vertical-timeline">
+          <!-- Current Job -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="experience-card">
+              <div class="experience-header">
+                <h3>IT Technical Support Staff</h3>
+                <div class="company-period">
+                  <span class="company">Nanox Philippines, Inc.</span>
+                  <span class="period">June 2025 - Present</span>
+                </div>
+                <span class="location">Mabalacat, Pampanga</span>
+              </div>
+              
+              <div class="achievements">
+                <h4>Key Achievements & Responsibilities:</h4>
+                <ul class="achievement-list">
+                  <li>Reduced average ticket resolution time by introducing standardized troubleshooting steps and knowledge base articles</li>
+                  <li>Monitored and maintained 100+ PCs, ensuring >99% availability for critical workstations during business hours</li>
+                </ul>
+                <button class="btn see-details-btn" data-target="details-1">See Details</button>
+                <div id="details-1" class="additional-details" style="display: none;">
+                  <ul class="achievement-list">
+                    <li>Implemented automation scripts for bulk user provisioning and reporting tasks</li>
+                    <li>Created Radmin automation for server monitoring and maintenance</li>
+                    <li>Led in-house training sessions for end-users, improving Office productivity and reducing repetitive support tickets</li>
+                    <li>Assisted in improving internal web applications' reliability by identifying and reporting recurring errors to developers</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Internship -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="experience-card">
+              <div class="experience-header">
+                <h3>IT Support / Developer — Internship</h3>
+                <div class="company-period">
+                  <span class="company">Various Projects & Freelance</span>
+                  <span class="period">January 2025 — April 2025</span>
+                </div>
+                <span class="location">Lubao, Pampanga</span>
+              </div>
+              
+              <div class="achievements">
+                <h4>Key Responsibilities:</h4>
+                <ul class="achievement-list">
+                  <li>Resolved hardware/software issues across multiple environments</li>
+                  <li>Installed and configured CCTV systems for security monitoring</li>
+                  <li>Organized large digital archives and implemented efficient data management systems</li>
+                  <li>Assisted in inventory management and maintained e-commerce backends</li>
+                  <li>Developed automation tools to streamline IT operations</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Education -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="experience-card">
+              <div class="experience-header">
+                <h3>Education</h3>
+                <div class="company-period">
+                  <span class="company">Pampanga State Agricultural University</span>
+                  <span class="period">2021 — 2025</span>
+                </div>
+              </div>
+              <p style="color: var(--muted);"><strong>Bachelor of Science in Information Technology</strong></p>
+              <ul class="achievement-list">
+                <li>Graduated with comprehensive knowledge in software development, networking, and system administration</li>
+                <li>Completed capstone projects in adaptive brightness systems and productivity applications</li>
+                <li>Participated in multiple programming competitions and innovation challenges</li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Competitions -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="experience-card">
+              <div class="experience-header">
+                <h3>Competitions & Achievements</h3>
+                <div class="company-period">
+                  <span class="company">Pampanga State Agricultural University</span>
+                  <span class="period">2021 — 2025</span>
+                </div>
+              </div>
+              <ul class="achievement-list">
+                <li>Philippine Start-up Challenge — Regional Pitch (Oct 2023)</li>
+                <li>PSAU Creativity & Innovation Day — Pitch (Apr 2024)</li>
+                <li>TOPCIT — Level 4 IT Competency (Apr 2024)</li>
+                <li>DICT Programming Course — Accredited (Sept 2024)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Skills Tab -->
+      <div id="skills" class="tab-content">
+        <div class="skills-grid">
+          <!-- Column 1 -->
+          <div class="skills-column">
+            <!-- Programming Languages -->
+            <div class="card">
+              <div class="card-header">
+                <h3>Programming Languages</h3>
+              </div>
+              <div class="skills-list">
+                <div class="skill-item">
+                  <span class="skill-name">Python</span>
+                  <div class="skill-level">
+                    <div class="skill-bar" style="width: 95%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">JavaScript</span>
+                  <div class="skill-level">
+                    <div class="skill-bar" style="width: 90%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">TypeScript</span>
+                  <div class="skill-level">
+                    <div class="skill-bar" style="width: 75%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">HTML/CSS</span>
+                  <div class="skill-level">
+                    <div class="skill-bar" style="width: 88%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">SQL</span>
+                  <div class="skill-level">
+                    <div class="skill-bar" style="width: 80%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">Java</span>
+                  <div class="skill-level">
+                    <div class="skill-bar" style="width: 70%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">Shell Scripting</span>
+                  <div class="skill-level">
+                    <div class="skill-bar" style="width: 75%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Python Frameworks & Libraries -->
+            <div class="card">
+              <div class="card-header">
+                <h3>Python Frameworks & Libraries</h3>
+              </div>
+              <div class="skills-tags">
+                <span class="tech-tag">Flask</span>
+                <span class="tech-tag">FastAPI</span>
+                <span class="tech-tag">PyQt5</span>
+                <span class="tech-tag">PySide6</span>
+                <span class="tech-tag">Tkinter</span>
+                <span class="tech-tag">CustomTkinter</span>
+                <span class="tech-tag">Kivy</span>
+                <span class="tech-tag">PyAutoGUI</span>
+                <span class="tech-tag">OpenCV</span>
+                <span class="tech-tag">Matplotlib</span>
+                <span class="tech-tag">mplfinance</span>
+                <span class="tech-tag">PyPDF2</span>
+                <span class="tech-tag">VOSK</span>
+                <span class="tech-tag">bcrypt</span>
+                <span class="tech-tag">Cryptography</span>
+                <span class="tech-tag">Requests</span>
+                <span class="tech-tag">BeautifulSoup</span>
+                <span class="tech-tag">Selenium</span>
+                <span class="tech-tag">Pandas</span>
+                <span class="tech-tag">NumPy</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="skills-column">
+            <!-- Web Technologies -->
+            <div class="card">
+              <div class="card-header">
+                <h3>Web Technologies</h3>
+              </div>
+              <div class="skills-tags">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript ES6+</span>
+                <span class="tech-tag">REST APIs</span>
+                <span class="tech-tag">JSON</span>
+                <span class="tech-tag">AJAX</span>
+                <span class="tech-tag">Bootstrap 5</span>
+                <span class="tech-tag">Responsive Design</span>
+                <span class="tech-tag">CSS Grid</span>
+                <span class="tech-tag">Flexbox</span>
+                <span class="tech-tag">CSS Variables</span>
+                <span class="tech-tag">Dark/Light Themes</span>
+                <span class="tech-tag">Web Animations</span>
+              </div>
+            </div>
+
+            <!-- JavaScript Technologies -->
+            <div class="card">
+              <div class="card-header">
+                <h3>JavaScript Technologies</h3>
+              </div>
+              <div class="skills-tags">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">WebRTC</span>
+                <span class="tech-tag">Chrome Extensions API</span>
+                <span class="tech-tag">Service Workers</span>
+                <span class="tech-tag">Web Crypto API</span>
+                <span class="tech-tag">Canvas API</span>
+                <span class="tech-tag">Local Storage</span>
+                <span class="tech-tag">IndexedDB</span>
+                <span class="tech-tag">WebSockets</span>
+                <span class="tech-tag">Fetch API</span>
+                <span class="tech-tag">DOM Manipulation</span>
+                <span class="tech-tag">Event Handling</span>
+              </div>
+            </div>
+
+            <!-- Development Tools -->
+            <div class="card">
+              <div class="card-header">
+                <h3>Development Tools</h3>
+              </div>
+              <div class="skills-tags">
+                <span class="tech-tag">Git/GitHub</span>
+                <span class="tech-tag">VS Code</span>
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">Postman</span>
+                <span class="tech-tag">PyTest</span>
+                <span class="tech-tag">Jupyter</span>
+                <span class="tech-tag">Chrome DevTools</span>
+                <span class="tech-tag">FTP Clients</span>
+                <span class="tech-tag">Virtual Environments</span>
+                <span class="tech-tag">Package Management</span>
+                <span class="tech-tag">Debugging Tools</span>
+                <span class="tech-tag">Performance Optimization</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 3 -->
+          <div class="skills-column">
+            <!-- IT & System Administration -->
+            <div class="card">
+              <div class="card-header">
+                <h3>IT & System Administration</h3>
+              </div>
+              <div class="skills-tags">
+                <span class="tech-tag">System Maintenance</span>
+                <span class="tech-tag">Network Setup</span>
+                <span class="tech-tag">CCTV Installation</span>
+                <span class="tech-tag">Hardware Repair</span>
+                <span class="tech-tag">Troubleshooting</span>
+                <span class="tech-tag">Inventory Management</span>
+                <span class="tech-tag">Radmin Viewer</span>
+                <span class="tech-tag">FTP/SFTP</span>
+                <span class="tech-tag">Server Monitoring</span>
+                <span class="tech-tag">Event Viewer</span>
+                <span class="tech-tag">Remote Desktop</span>
+                <span class="tech-tag">System Automation</span>
+                <span class="tech-tag">Batch Processing</span>
+              </div>
+            </div>
+
+            <!-- Specialized Skills -->
+            <div class="card">
+              <div class="card-header">
+                <h3>Specialized Skills</h3>
+              </div>
+              <div class="skills-tags">
+                <span class="tech-tag">Web Scraping</span>
+                <span class="tech-tag">Automation</span>
+                <span class="tech-tag">Data Visualization</span>
+                <span class="tech-tag">PDF Processing</span>
+                <span class="tech-tag">QR Code Generation</span>
+                <span class="tech-tag">QR Code Scanning</span>
+                <span class="tech-tag">Speech Recognition</span>
+                <span class="tech-tag">Voice Activity Detection</span>
+                <span class="tech-tag">Real-time Applications</span>
+                <span class="tech-tag">Peer-to-Peer Communication</span>
+                <span class="tech-tag">Browser Extensions</span>
+                <span class="tech-tag">Desktop Applications</span>
+                <span class="tech-tag">Mobile Development</span>
+                <span class="tech-tag">Cross-platform Development</span>
+                <span class="tech-tag">API Integration</span>
+              </div>
+            </div>
+
+            <!-- Currently Learning -->
+            <div class="card">
+              <div class="card-header">
+                <h3>Currently Learning</h3>
+              </div>
+              <div class="skills-tags">
+                <span class="tech-tag learning">React.js Advanced</span>
+                <span class="tech-tag learning">Node.js</span>
+                <span class="tech-tag learning">AWS</span>
+                <span class="tech-tag learning">Docker Advanced</span>
+                <span class="tech-tag learning">Machine Learning</span>
+                <span class="tech-tag learning">Cloud Computing</span>
+                <span class="tech-tag learning">Microservices</span>
+                <span class="tech-tag learning">CI/CD Pipelines</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 
   <script>
-    // See Details functionality for experience items
+    // Tab functionality
     document.addEventListener('DOMContentLoaded', function() {
+      const tabButtons = document.querySelectorAll('.tab-button');
+      const tabContents = document.querySelectorAll('.tab-content');
+      
+      tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const tabId = button.getAttribute('data-tab');
+          
+          // Remove active class from all buttons and contents
+          tabButtons.forEach(btn => btn.classList.remove('active'));
+          tabContents.forEach(content => content.classList.remove('active'));
+          
+          // Add active class to clicked button and corresponding content
+          button.classList.add('active');
+          document.getElementById(tabId).classList.add('active');
+        });
+      });
+      
+      // See Details functionality for experience items
       const seeDetailsBtns = document.querySelectorAll('.see-details-btn');
       
       seeDetailsBtns.forEach(btn => {
@@ -309,10 +737,6 @@
       });
     });
   </script>
-
   <script src="main.js"></script>
 </body>
-
-
 </html>
-
