@@ -28,7 +28,7 @@
       position: relative;
       transition: all 0.3s;
     }
-
+    
     .tab-button:hover {
       color: var(--primary);
     }
@@ -68,14 +68,14 @@
       border-radius: 10px;
       padding: 24px;
       margin-bottom: 20px;
-      box-shadow: 0 2px 10px var(--shadow);
-      border-left: 4px solid var(--primary);
+      box-shadow: 0 2px 10px var(--muted-dark);
+      border-left: 4px solid #4cc9f0;;
       transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .experience-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 25px var(--shadow);
+      box-shadow: 0 8px 25px var(--panel-dark);
     }
 
     .experience-header {
@@ -212,7 +212,7 @@
 
     .skill-bar {
       height: 100%;
-      background: var(--accent);
+      background: #4cc9f0;
       border-radius: 3px;
       transition: width 0.3s ease;
     }
@@ -236,7 +236,7 @@
       top: 0;
       bottom: 0;
       width: 2px;
-      background: var(--primary);
+      background: #4cc9f0;
     }
 
     .timeline-item {
@@ -252,7 +252,7 @@
       width: 16px;
       height: 16px;
       border-radius: 50%;
-      background: var(--primary);
+      background: #4cc9f0;
       z-index: 1;
     }
 
@@ -272,15 +272,9 @@
         margin-right: 10px;
       }
       
-      .nav-links {
-        justify-content: center;
-        flex: 1;
-      }
-      
       .header-controls {
         position: static;
         transform: none;
-        margin-left: auto;
       }
       
       .skills-grid {
@@ -379,7 +373,7 @@
             <div class="timeline-dot"></div>
             <div class="experience-card">
               <div class="experience-header">
-                <h3>Information System Security Engineer</h3>
+                <h3>Information Technology Security Engineer</h3>
                 <div class="company-period">
                   <span class="company">Nanox Philippines, Inc.</span>
                   <span class="period">June 2025 - Present</span>
@@ -392,16 +386,19 @@
                 <ul class="achievement-list">
                   <li>Reduced average ticket resolution time by introducing standardized troubleshooting steps and knowledge base articles</li>
                   <li>Monitored and maintained 100+ PCs, ensuring >99% availability for critical workstations during business hours</li>
+                  <li>Implemented automation scripts for bulk user provisioning and reporting tasks</li>
+                  <li>Created Radmin automation for server monitoring and maintenance</li>
+                  <li>Led in-house training sessions for end-users, improving Office productivity and reducing repetitive support tickets</li>
+                  <li>Assisted in improving internal web applications' reliability by identifying and reporting recurring errors to developers</li>
                 </ul>
-                <button class="btn see-details-btn" data-target="details-1">See Details</button>
-                <div id="details-1" class="additional-details" style="display: none;">
+                <!-- <div id="details-1" class="additional-details" style="display: none;">
                   <ul class="achievement-list">
                     <li>Implemented automation scripts for bulk user provisioning and reporting tasks</li>
                     <li>Created Radmin automation for server monitoring and maintenance</li>
                     <li>Led in-house training sessions for end-users, improving Office productivity and reducing repetitive support tickets</li>
                     <li>Assisted in improving internal web applications' reliability by identifying and reporting recurring errors to developers</li>
                   </ul>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
@@ -740,4 +737,3 @@
   <script src="main.js"></script>
 </body>
 </html>
-

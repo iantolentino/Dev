@@ -1,4 +1,4 @@
-// main.js (updated for fixed theme toggle position)
+// main.js - Unified theme management across all pages
 (function(){
   const fullName = 'Ian Tolentino';
   const initials = (fullName.split(' ').map(n=>n[0]).slice(0,2).join('').toUpperCase()) || 'IT';
@@ -30,6 +30,7 @@
   function updateThemeSwitch() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const switchInput = document.querySelector('.theme-switch input');
+    
     if (switchInput) {
       switchInput.checked = currentTheme === 'dark';
     }
@@ -48,13 +49,13 @@
     updateThemeSwitch();
   }
 
-  // set avatar initials
+  // Set avatar initials
   document.querySelectorAll('.avatar-initials').forEach(el=>{
     el.textContent = initials;
     el.setAttribute('aria-label', fullName);
   });
 
-  // smooth scroll for same-page anchors
+  // Smooth scroll for same-page anchors
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
     a.addEventListener('click', function(e){
       const target = document.querySelector(this.getAttribute('href'));
@@ -62,6 +63,6 @@
     });
   });
 
-  // stagger variable for cards
+  // Stagger variable for cards
   document.querySelectorAll('.grid .card, .grid-4 .card').forEach((c,i)=> c.style.setProperty('--i', i));
 })();

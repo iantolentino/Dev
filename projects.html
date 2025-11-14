@@ -1,14 +1,138 @@
-<!-- projects.html (complete with all 52 projects) -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="author-name" content="Ian Tolentino">
-  <meta name="description" content="Portfolio of 52 projects including web applications, desktop software, browser extensions, and automation tools">
+  <meta name="description" content="Portfolio of 63 projects including web applications, desktop software, browser extensions, and automation tools">
   <title>Projects — Ian Tolentino</title>
   <link rel="icon" href="assets/favicon.png" type="image/x-icon" />
   <link rel="stylesheet" href="styles.css">
-    <script>
+  <style>
+    /* Page-specific styles for projects.html */
+    .project-count {
+      font-size: 1.5rem;
+      color: var(--muted);
+    }
+
+    .project-filters {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .filter-btn {
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      color: var(--muted);
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--outline-dark);
+      border-color: var(--accent-light);
+    }
+
+    .project-card {
+      cursor: pointer;
+    }
+
+    .tech-stack {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .project-features {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0;
+    }
+
+    .project-features li {
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding: 6px 0;
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.4;
+    }
+
+    .project-features li:before {
+      content: "▸";
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    .project-type {
+      background: var(--light);
+      color: var(--muted);
+      padding: 6px 6px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      text-wrap-mode: wrap;
+    }
+
+    .stars {
+      margin-top: 10px;
+      color: var(--warning);
+      font-weight: 900;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 8px;
+    }
+
+    .project-link {
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all 0.2s;
+      border: 1px solid var(--border);
+      text-decoration: none;
+    }
+
+    .project-link:hover {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .pagination {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 576px) {
+      .project-filters {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+  <script>
     // Prevent flash of wrong theme
     (function() {
       const savedTheme = localStorage.getItem('theme');
@@ -42,7 +166,7 @@
         <span class="nav-text">Projects</span>
       </a> 
       <a href="expertise.html">
-        <img src="assets/experience.png" alt="Experience" class="nav-icon">
+        <img src="assets/experience.png" alt="Expertise" class="nav-icon">
         <span class="nav-text">Experience</span>
       </a>
     </div>
@@ -74,7 +198,7 @@
         <button class="filter-btn" data-filter="utility">Utilities</button>
       </div>
 
-      <div class="grid-4 projects-grid">
+      <div class="grid projects-grid">
         <!-- Project 1 -->
         <div class="card project-card" data-category="python utility" onclick="window.open('https://github.com/iantolentino/github-repo-fetcher', '_blank')">
           <div class="card-header">
@@ -1718,6 +1842,4 @@
   <script src="main.js"></script>
 </body>
 
-
 </html>
-
