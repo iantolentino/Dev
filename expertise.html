@@ -257,51 +257,34 @@
     }
 
     /* Header adjustments for mobile */
-    @media (max-width: 768px) {
-      .header {
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-      }
-      
-      .primary {
-        flex: 1;
-      }
-      
-      .home-button {
-        margin-right: 10px;
-      }
-      
-      .header-controls {
-        position: static;
-        transform: none;
-      }
-      
-      .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      .company-period {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
+    /* Header adjustments for mobile */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .company-period {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 
-    @media (max-width: 576px) {
-      .skills-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .tab-navigation {
-        flex-direction: column;
-        gap: 10px;
-      }
-      
-      .tab-button {
-        width: 100%;
-        text-align: center;
-      }
-    }
+@media (max-width: 576px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .tab-navigation {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .tab-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
   </style>
   <script>
     // Prevent flash of wrong theme
