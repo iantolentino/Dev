@@ -13,7 +13,7 @@ A modern, responsive portfolio website showcasing 50+ projects across web develo
 
 ## 📁 Project Structure
 
-```
+``` 
 portfolio/
 ├── index.html          # About Me (Homepage)
 ├── projects.html       # Projects showcase (52 projects)
