@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website showcasing 50+ projects across web development, desktop applications, browser extensions, and automation tools. Built with a clean, GitHub-inspired dark theme and fully responsive design.
 
-## 🚀 Features 
+## 🚀 Features  
 
 - **Modern Design**: GitHub-inspired dark theme with glassmorphism effects
 - **Fully Responsive**: Optimized for desktop, tablet, and mobile devices
