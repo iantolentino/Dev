@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ian Tolentino">
+    <meta name="description" content="Ian Tolentino - Full-Stack Developer & IT Security Engineer specializing in Python, JavaScript, and modern web technologies">
+    <meta name="keywords" content="Full-Stack Developer, Python, JavaScript, IT Security, Portfolio">
+    
+    <title>Ian Tolentino - Backend Developer & IT Security Engineer</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.png" type="image/x-icon">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Files - Organized by purpose -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/backend-demo.css">
+    
+    <!-- Theme initialization - Prevents flash of wrong theme -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else {
+                document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+            }
+        })();
+    </script>
+</head>
+<body>
+    <!-- Header will be loaded dynamically -->
+    <div id="site-header"></div>
+
+    <main>
+        <div class="container">
+            <!-- Hero Section - Introduction -->
+            <section class="hero main-card" aria-labelledby="hero-title">
+                <div class="avatar">
+                    <img src="assets/avatar.jpg" alt="Ian Tolentino profile picture">
+                </div>
+        
+                <div class="bio">
+                    <h1 id="hero-title" class="site-name-large">Ian Tolentino</h1>
+                    <p class="subtitle">Backend Developer & IT Security Engineer</p>
+                    
+                    <div class="hero-highlight">
+                        <i class="fas fa-code"></i> Python • Flask • FastAPI • JavaScript • Powershell • PostgreSQL
+                    </div>
+                    <!-- Current Role Highlight - Easy to spot for recruiters -->
+                    <div class="current-role">
+                        <i class="fas fa-briefcase"></i>
+                        Currently: IT Security Engineer at Nanox Philippines, Inc.
+                    </div>
+            
+
+                    <!-- Call to Action Buttons -->
+                    <div class="cta-buttons">
+                        <a href="projects.html" class="btn primary">
+                            <i class="fas fa-folder-open"></i> View Projects
+                        </a>
+                        <a href="mailto:iantolentino0110@gmail.com" class="btn primary">
+                            <i class="fas fa-envelope"></i> Email Me
+                        </a>
+                        <a href="https://github.com/iantolentino" target="_blank" rel="noopener" class="btn primary">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/ian-tolentino-9b257b273/" target="_blank" rel="noopener" class="btn primary">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                    </div>
+
+                    <!-- Statistics Cards -->
+                    <div class="grid">
+                        <div class="stat-card">
+                            <div class="stat-number">60+</div>
+                            <div class="stat-label">Projects</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">1+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">25+</div>
+                            <div class="stat-label">Technologies</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">Certifications</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Two Column Layout for About + Skills -->
+            <div class="two-column">
+                <!-- About Section - Simplified for non-tech users -->
+                <section class="card">
+                    <h2 class="section-title">About Me</h2>
+                    
+                    <p class="about-text">
+                        I'm a <span class="highlight">full-stack developer</span> with a 
+                        backend-focused approach to web development.
+                    </p>
+                    
+                    <p class="about-text">
+                        I focus on writing <span class="highlight">clean, maintainable code</span> and believe 
+                        in continuous learning to stay current with evolving technologies.
+                    </p>
+                    
+                    <p class="about-text">
+                        Beyond technical skills, I value <span class="highlight">collaboration</span> and 
+                        creating software that balances functionality with intuitive user experiences.
+                    </p>
+
+                    <!-- Quick Skills Overview -->
+                    <div style="margin-top: 20px;">
+                        <h3 style="font-size: 16px; margin-bottom: 12px; color: var(--accent);">
+                            <i class="fas fa-cog"></i> Quick Skills
+                        </h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag primary">Python</span>
+                            <span class="skill-tag primary">JavaScript</span>
+                            <span class="skill-tag primary">SQL</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Flask</span>
+                            <span class="skill-tag">FastAPI</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Git</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quick Stats & Info -->
+                <section class="card">
+                    <h2 class="section-title">At a Glance</h2>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <h3 style="font-size: 16px; margin-bottom: 12px; color: var(--accent);">
+                            <i class="fas fa-trophy"></i> Achievements
+                        </h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 10px; display: flex; gap: 10px;">
+                                <i class="fas fa-check-circle" style="color: var(--success);"></i>
+                                <span>Philippine Start-up Challenge - Regional Pitch (2023)</span>
+                            </li>
+                            <li style="margin-bottom: 10px; display: flex; gap: 10px;">
+                                <i class="fas fa-check-circle" style="color: var(--success);"></i>
+                                <span>TOPCIT - Level 4 IT Competency (2024)</span>
+                            </li>
+                            <li style="margin-bottom: 10px; display: flex; gap: 10px;">
+                                <i class="fas fa-check-circle" style="color: var(--success);"></i>
+                                <span>DICT Programming Course - Accredited (2024)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 style="font-size: 16px; margin-bottom: 12px; color: var(--accent);">
+                            <i class="fas fa-graduation-cap"></i> Education
+                        </h3>
+                        <p><strong>B.S. Information Technology</strong></p>
+                        <p class="muted">Pampanga State Agricultural University (2021-2025)</p>
+                        <p class="muted">GPA: 1.59/5.00 (where 1 is highest)</p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Featured Projects Section -->
+            <section class="main-card">
+                <h2 class="section-title">Featured Projects</h2>
+                
+                <div class="grid-3" id="featured-projects-grid">
+                    <!-- Projects will be loaded dynamically via JavaScript -->
+                    <div style="text-align: center; grid-column: 1 / -1; padding: 20px;">
+                        <i class="fas fa-spinner fa-spin"></i> Loading projects...
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 24px;">
+                    <a href="projects.html" class="btn primary">
+                        <i class="fas fa-arrow-right"></i> View All Projects
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Floating Backend Demo (will be populated by JavaScript) -->
+    <div id="backend-demo-floating"></div>
+
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+    <script src="js/github-api.js"></script>
+    <script src="js/backend-demo-floating.js"></script>
+    
+    <!-- Initialize featured projects -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof renderProjects === 'function') {
+                renderProjects('featured-projects-grid');
+
+                // Limit featured projects to 6 (index page only)
+                const grid = document.getElementById('featured-projects-grid');
+
+                // Use a MutationObserver to wait until projects are rendered
+                const observer = new MutationObserver(() => {
+                    const projects = Array.from(grid.children);
+
+                    projects.forEach((project, index) => {
+                        if (index >= 6) {
+                            project.style.display = 'none';
+                        }
+                    });
+
+                    observer.disconnect();
+                });
+
+                observer.observe(grid, { childList: true });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,396 @@
+/* ============================================
+   GLOBAL CSS - Ian Tolentino Portfolio
+   Shared styles across all pages
+   ============================================ */
+
+/* CSS Variables - Light/Dark Theme System
+   All color schemes are defined here for easy maintenance
+   ============================================ */
+:root {
+  /* Light mode colors - Clean, professional light theme */
+  --bg-light: #ffffff;
+  --panel-light: #f8f9fa;
+  --muted-light: #6c757d;
+  --accent-light: #0366d6;
+  --accent-dark-light: #58a6ff;
+  --text-light: #212529;
+  --glass-light: rgba(0, 0, 0, 0.03);
+  --success-light: #28a745;
+  --warning-light: #ffc107;
+  --error-light: #dc3545;
+  --outline-light: rgba(0, 0, 0, 0.15);
+  --outline-hover-light: #007bff;
+
+  /* Dark mode colors - GitHub-inspired dark theme */
+  --bg-dark: #0d1117;
+  --panel-dark: #161b22;
+  --muted-dark: #8b949e;
+  --accent-dark: #58a6ff;
+  --accent-dark-dark: #1f6feb;
+  --text-dark: #c9d1d9;
+  --glass-dark: rgba(255, 255, 255, 0.03);
+  --success-dark: #3fb950;
+  --warning-dark: #d29922;
+  --error-dark: #f85149;
+  --outline-dark: rgba(255, 255, 255, 0.15);
+  --outline-hover-dark: #58a6ff;
+
+  /* Default to dark mode (matches GitHub theme) */
+  --bg: var(--bg-dark);
+  --panel: var(--panel-dark);
+  --muted: var(--muted-dark);
+  --accent: var(--accent-dark);
+  --accent-dark: var(--accent-dark-dark);
+  --text: var(--text-dark);
+  --glass: var(--glass-dark);
+  --success: var(--success-dark);
+  --warning: var(--warning-dark);
+  --error: var(--error-dark);
+  --outline: var(--outline-dark);
+  --outline-hover: var(--outline-hover-dark);
+
+  /* Layout variables - Consistent spacing and sizing */
+  --radius: 12px;           /* Border radius for cards */
+  --container-w: 1400px;     /* Max container width */
+  --nav-h: 76px;            /* Navigation height */
+  --max-mobile-width: 980px; /* Mobile breakpoint */
+  --icon-size: 24px;        /* Standard icon size */
+  --icon-size-mobile: 22px; /* Mobile icon size */
+}
+
+/* Light theme override */
+[data-theme="light"] {
+  --bg: var(--bg-light);
+  --panel: var(--panel-light);
+  --muted: var(--muted-light);
+  --accent: var(--accent-light);
+  --accent-dark: var(--accent-dark-light);
+  --text: var(--text-light);
+  --glass: var(--glass-light);
+  --success: var(--success-light);
+  --warning: var(--warning-light);
+  --error: var(--error-light);
+  --outline: var(--outline-light);
+  --outline-hover: var(--outline-hover-light);
+}
+
+/* Base Reset - Remove default browser styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, 
+              color 0.3s ease, 
+              border-color 0.3s ease,
+              transform 0.2s ease;
+}
+
+/* HTML & Body Base Styles */
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* Link Styles */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Container - Main layout wrapper */
+.container {
+  max-width: var(--container-w);
+  margin: 24px auto;
+  padding: 0 20px;
+}
+
+/* Typography */
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--text);
+  border-bottom: 2px solid var(--outline);
+  padding-bottom: 8px;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Button Styles */
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--outline);
+  background: var(--glass);
+  color: var(--text);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.btn.primary:hover {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
+/* Card Styles */
+.main-card {
+  background: var(--panel);
+  border: 1px solid var(--outline);
+  padding: 24px;
+  border-radius: var(--radius);
+  margin-bottom: 20px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--outline);
+  padding: 16px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+/* Grid Layouts */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Two Column Layout */
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+/* Avatar Styles */
+.avatar {
+  width: 184px;
+  height: 184px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--panel);
+  border: 3px solid var(--outline);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Stat Cards */
+.stat-card {
+  background: var(--glass);
+  border: 1px solid var(--outline);
+  padding: 16px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+.stat-number {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Skill Tags */
+.skill-tag {
+  background: var(--panel);
+  border: 1px solid var(--outline);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+  transition: all 0.2s;
+}
+
+.skill-tag:hover {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.skill-tag.primary {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+/* Tech Tags */
+.tech-tag {
+  background: var(--glass);
+  border: 1px solid var(--outline);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+  transition: all 0.2s;
+}
+
+.tech-tag:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Category Badge */
+.category-badge {
+  background: var(--outline);
+  color: var(--text);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid var(--outline);
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Responsive Design - Mobile First Approach */
+
+/* Tablet Styles (768px and below) */
+@media (max-width: 768px) {
+  .grid,
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .avatar {
+    width: 140px;
+    height: 140px;
+  }
+
+  .stat-number {
+    font-size: 24px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+}
+
+/* Mobile Styles (480px and below) */
+@media (max-width: 480px) {
+  .grid,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding: 0 12px;
+  }
+
+  .avatar {
+    width: 120px;
+    height: 120px;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-size: 20px;
+  }
+
+  .skill-tag {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+  }
+}
+
+/* Accessibility - Focus states for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .header,
+  .theme-switch-container,
+  .btn {
+    display: none !important;
+  }
+}

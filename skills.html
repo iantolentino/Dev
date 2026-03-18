@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Ian Tolentino">
+<meta name="description" content="Ian Tolentino's Technical Skills and Expertise">
+
+<title>Skills — Ian Tolentino</title>
+
+<link rel="icon" href="assets/favicon.png" type="image/x-icon">
+
+<!-- ICON LIBRARIES -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons-font@v7/font/simple-icons.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- CSS -->
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/skills.css">
+<link rel="stylesheet" href="css/backend-demo.css">
+
+<!-- Theme Init -->
+<script>
+(function () {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute(
+        'data-theme',
+        savedTheme || (prefersDark ? 'dark' : 'light')
+    );
+})();
+</script>
+</head>
+<body>
+<div id="site-header"></div>
+
+<main>
+<div class="container">
+<section class="main-card">
+
+<h1 class="section-title">Skills & Expertise</h1>
+
+<div class="skills-container">
+
+    <!-- BACKEND -->
+    <div class="skills-category backend">
+        <h2 class="category-title"><i class="fas fa-server"></i> Backend & Server</h2>
+        <div class="skills-icon-grid">
+            <div class="skill-icon"><i class="fab fa-python"></i><span class="icon-label">Python</span></div>
+            <div class="skill-icon"><i class="si si-flask"></i><span class="icon-label">Flask</span></div>
+            <div class="skill-icon"><i class="si si-fastapi"></i><span class="icon-label">FastAPI</span></div>
+            <div class="skill-icon"><i class="si si-django"></i><span class="icon-label">Django</span></div>
+            <div class="skill-icon"><i class="si si-mongodb"></i><span class="icon-label">MongoDB</span></div>
+            <div class="skill-icon"><i class="si si-mysql"></i><span class="icon-label">SQL</span></div>
+            <div class="skill-icon"><i class="si si-selenium"></i><span class="icon-label">Selenium</span></div>
+            <div class="skill-icon"><i class="si si-opencv"></i><span class="icon-label">OpenCV</span></div>
+        </div>
+    </div>
+
+    <!-- FRONTEND -->
+    <div class="skills-category frontend">
+        <h2 class="category-title"><i class="fas fa-paint-brush"></i> Frontend & UI</h2>
+        <div class="skills-icon-grid">
+            <div class="skill-icon"><i class="fab fa-react"></i><span class="icon-label">React</span></div>
+            <div class="skill-icon"><i class="fab fa-js-square"></i><span class="icon-label">JavaScript</span></div>
+            <div class="skill-icon"><i class="si si-typescript"></i><span class="icon-label">TypeScript</span></div>
+            <div class="skill-icon"><i class="fas fa-code"></i><span class="icon-label">HTML5</span></div>
+            <div class="skill-icon"><i class="fas fa-palette"></i><span class="icon-label">CSS3</span></div>
+            <div class="skill-icon"><i class="fab fa-bootstrap"></i><span class="icon-label">Bootstrap</span></div>
+            <div class="skill-icon"><i class="fas fa-link"></i><span class="icon-label">HTMX</span></div>
+            <div class="skill-icon"><i class="fas fa-mobile-alt"></i><span class="icon-label">Responsive Design</span></div>
+        </div>
+    </div>
+
+    <!-- TOOLS -->
+    <div class="skills-category tools">
+        <h2 class="category-title"><i class="fas fa-tools"></i> Tools & DevOps</h2>
+        <div class="skills-icon-grid">
+            <div class="skill-icon"><i class="fab fa-docker"></i><span class="icon-label">Docker</span></div>
+            <div class="skill-icon"><i class="fab fa-git-alt"></i><span class="icon-label">Git</span></div>
+            <div class="skill-icon"><i class="fab fa-github"></i><span class="icon-label">GitHub</span></div>
+            <div class="skill-icon"><i class="si si-visualstudiocode"></i><span class="icon-label">VS Code</span></div>
+            <div class="skill-icon"><i class="si si-postman"></i><span class="icon-label">Postman</span></div>
+            <div class="skill-icon"><i class="fab fa-linux"></i><span class="icon-label">Linux</span></div>
+            <div class="skill-icon"><i class="fas fa-terminal"></i><span class="icon-label">Shell</span></div>
+            <div class="skill-icon"><i class="si si-amazonaws"></i><span class="icon-label">AWS</span></div>
+        </div>
+    </div>
+
+    <!-- DESKTOP -->
+    <div class="skills-category desktop">
+        <h2 class="category-title"><i class="fas fa-desktop"></i> Desktop & Automation</h2>
+        <div class="skills-icon-grid">
+            <div class="skill-icon"><i class="fas fa-window-maximize"></i><span class="icon-label">PyQt / PySide</span></div>
+            <div class="skill-icon"><i class="fas fa-window-restore"></i><span class="icon-label">Tkinter</span></div>
+            <div class="skill-icon"><i class="fas fa-mobile-alt"></i><span class="icon-label">Kivy</span></div>
+            <div class="skill-icon"><i class="fas fa-qrcode"></i><span class="icon-label">QR Tools</span></div>
+            <div class="skill-icon"><i class="fas fa-file-pdf"></i><span class="icon-label">PDF Processing</span></div>
+            <div class="skill-icon"><i class="fas fa-chart-line"></i><span class="icon-label">Data Visualization</span></div>
+            <div class="skill-icon"><i class="fas fa-microphone"></i><span class="icon-label">Speech Recognition</span></div>
+            <div class="skill-icon"><i class="fas fa-video"></i><span class="icon-label">WebRTC</span></div>
+        </div>
+    </div>
+
+</div>
+</section>
+</div>
+</main>
+
+<div id="backend-demo-floating"></div>
+<script src="js/main.js"></script>
+<script src="js/backend-demo-floating.js"></script>
+</body>
+</html>

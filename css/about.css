@@ -1,0 +1,233 @@
+/* ============================================
+   ABOUT PAGE CSS - Mobile + Desktop Optimized
+   ============================================ */
+
+/* About Content Container */
+.about-content {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 0 16px;
+}
+
+/* About Text Paragraphs */
+.about-text {
+    color: var(--text);
+    margin-bottom: 28px;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    text-align: justify;
+    position: relative;
+    padding-left: 20px;
+    border-left: 3px solid var(--accent);
+    transition: all 0.3s ease;
+}
+
+/* Highlighted Text */
+.highlight {
+    color: var(--accent);
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent);
+    opacity: 0.3;
+}
+
+/* Philosophy Section */
+.philosophy-section {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid var(--outline);
+}
+
+/* 2 columns on desktop */
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.philosophy-item {
+    text-align: center;
+    padding: 24px 16px;
+    background: var(--glass);
+    border: 1px solid var(--outline);
+    border-radius: var(--radius);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.philosophy-item:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.philosophy-item i {
+    font-size: 36px;
+    color: var(--accent);
+    margin-bottom: 16px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.philosophy-item:hover i {
+    transform: scale(1.1);
+    color: var(--accent-dark);
+}
+
+.philosophy-item h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text);
+    line-height: 1.3;
+}
+
+.philosophy-item p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+/* Timeline/Stats Section */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+    margin-top: 30px;
+}
+
+.stat-block {
+    background: var(--panel);
+    border: 1px solid var(--outline);
+    padding: 20px;
+    border-radius: var(--radius);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.stat-block:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.stat-number-large {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.stat-label-large {
+    font-size: 14px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ============================================
+   Responsive Styles
+   ============================================ */
+
+/* Tablet (768px) */
+@media (max-width: 768px) {
+    .about-text {
+        font-size: 1rem;
+        padding-left: 15px;
+    }
+
+    .philosophy-grid {
+        grid-template-columns: 1fr; /* single column for tablets */
+        gap: 16px;
+    }
+
+    .philosophy-item {
+        padding: 20px 12px;
+    }
+
+    .philosophy-item i {
+        font-size: 32px;
+    }
+
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat-number-large {
+        font-size: 36px;
+    }
+}
+
+/* Mobile (480px) */
+@media (max-width: 480px) {
+    .about-text {
+        font-size: 0.95rem;
+        padding-left: 12px;
+        margin-bottom: 20px;
+    }
+
+    .philosophy-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .philosophy-item {
+        padding: 16px 12px;
+    }
+
+    .philosophy-item i {
+        font-size: 28px;
+        margin-bottom: 12px;
+    }
+
+    .philosophy-item h3 {
+        font-size: 0.95rem;
+    }
+
+    .philosophy-item p {
+        font-size: 0.85rem;
+    }
+
+    .stats-container {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .stat-number-large {
+        font-size: 32px;
+    }
+}
+
+/* Desktop Large Screens (1200px+) */
+@media (min-width: 1200px) {
+    .about-content {
+        max-width: 1100px;
+    }
+
+    .philosophy-item i {
+        font-size: 40px;
+    }
+
+    .philosophy-item h3 {
+        font-size: 1.1rem;
+    }
+
+    .philosophy-item p {
+        font-size: 0.95rem;
+    }
+
+    .stat-number-large {
+        font-size: 48px;
+    }
+}

@@ -1,0 +1,356 @@
+/* ============================================
+   SKILLS PAGE CSS - Ian Tolentino Portfolio
+   Updated: Category Colors + Brand Icons
+   ============================================ */
+
+/* ===============================
+   CATEGORY COLOR SYSTEM
+================================ */
+
+.skills-category.backend { --cat-color: #3776AB; }   /* Python */
+.skills-category.frontend { --cat-color: #8A2BE2; }  /* UI */
+.skills-category.tools { --cat-color: #0DB7ED; }     /* DevOps */
+.skills-category.desktop { --cat-color: #C55A11; }   /* Desktop */
+
+/* ===============================
+   SKILLS CONTAINER
+================================ */
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.skills-category {
+    break-inside: avoid;
+    border-left: 4px solid var(--cat-color);
+    padding-left: 16px;
+}
+
+/* ===============================
+   CATEGORY TITLES
+================================ */
+
+.category-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--cat-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--outline);
+    display: flex;
+    align-items: center;
+}
+
+.category-title i {
+    margin-right: 10px;
+    color: var(--cat-color);
+}
+
+/* ===============================
+   ICON GRID
+================================ */
+
+.skills-icon-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.skill-icon {
+    height: 100px;
+    border-radius: 12px;
+    background: var(--panel);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--outline);
+    position: relative;
+    cursor: default;
+    transition: all 0.2s ease;
+    aspect-ratio: 1 / 1;
+}
+
+.skill-icon:hover {
+    transform: translateY(-5px) scale(1.05);
+    border-color: var(--cat-color);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* ===============================
+   ICON BASE (NO COLOR HERE)
+================================ */
+
+.skill-icon i {
+    font-size: 42px;
+    transition: transform 0.2s ease;
+}
+
+.skill-icon:hover i {
+    transform: scale(1.15);
+}
+
+/* ===============================
+   REAL BRAND COLORS
+================================ */
+
+/* Languages */
+.fa-python { color: #3776AB; }
+.fa-js, .fa-js-square { color: #F7DF1E; }
+.fa-react { color: #61DAFB; }
+
+/* Backend */
+.fa-leaf { color: #47A248; }          /* MongoDB */
+.fa-database { color: #336791; }
+.fa-bolt { color: #009688; }           /* FastAPI */
+.fa-cube { color: #000000; }           /* Flask */
+
+/* Frontend */
+.fa-html5 { color: #E34F26; }
+.fa-css3-alt, .fa-palette { color: #1572B6; }
+.fa-bootstrap { color: #7952B3; }
+
+/* Tools & DevOps */
+.fa-docker { color: #0DB7ED; }
+.fa-git-alt { color: #F05032; }
+.fa-github { color: #181717; }
+.fa-linux { color: #FCC624; }
+.fa-cloud { color: #FF9900; }
+
+/* Desktop / Utilities */
+.fa-window-maximize,
+.fa-window-restore { color: #4A90E2; }
+
+.fa-qrcode { color: #000000; }
+.fa-file-pdf { color: #E02F2F; }
+.fa-video { color: #FF0000; }
+.fa-microphone { color: #6A1B9A; }
+
+/* Neutral system icons inherit category color */
+.fa-server,
+.fa-tools,
+.fa-desktop,
+.fa-terminal,
+.fa-code,
+.fa-link,
+.fa-mobile-alt {
+    color: var(--cat-color);
+}
+
+/* ===============================
+   TOOLTIP
+================================ */
+
+.skill-icon .tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(5px);
+    background: var(--text);
+    color: var(--bg);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    z-index: 20;
+}
+
+.skill-icon .tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--text) transparent transparent transparent;
+}
+
+.skill-icon:hover .tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 991px) {
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 575px) {
+    .skills-icon-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .skill-icon {
+        height: 70px;
+    }
+
+    .skill-icon i {
+        font-size: 28px;
+    }
+
+    .category-title {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 375px) {
+    .skills-icon-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ===============================
+   PRINT
+================================ */
+
+@media print {
+    .tooltip {
+        display: none;
+    }
+}
+
+/* ===============================
+   MOBILE FIXES FOR ICON LABELS
+   =============================== */
+
+/* Default flex-column already set */
+.skill-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    min-height: 100px; /* ensures space for icon + label */
+    text-align: center;
+    padding: 4px;
+}
+
+/* Ensure labels wrap text */
+.skill-icon .icon-label {
+    white-space: normal;
+    word-break: break-word;
+    font-size: 0.8rem;
+    line-height: 1.2;
+}
+
+/* Grid adjustments for tablets and mobile */
+@media (max-width: 767px) {
+    .skills-icon-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+
+    .skill-icon {
+        min-height: 120px; /* more vertical space for wrapping */
+    }
+
+    .skill-icon i {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 575px) {
+    .skills-icon-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .skill-icon {
+        min-height: 130px;
+    }
+
+    .skill-icon i {
+        font-size: 28px;
+    }
+
+    .skill-icon .icon-label {
+        font-size: 0.75rem;
+    }
+}
+
+/* Category Colors */
+.backend { --cat-color: #3776AB; }
+.frontend { --cat-color: #8A2BE2; }
+.tools { --cat-color: #0DB7ED; }
+.desktop { --cat-color: #C55A11; }
+
+/* Title centering */
+.category-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    color: var(--cat-color);
+}
+
+/* Skill icon + label */
+.skill-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-size: 36px;
+    cursor: default;
+}
+
+.skill-icon i {
+    font-size: 40px;
+    transition: transform 0.2s ease;
+}
+
+.skill-icon:hover i {
+    transform: scale(1.15);
+}
+
+/* Label below icon, colored by category */
+.skill-icon .icon-label {
+    font-size: 0.85rem;
+    color: var(--cat-color);
+    text-align: center;
+}
+
+/* Simple Icons sizing */
+.skill-icon i.si {
+    font-size: 40px;
+}
+
+/* Official brand colors for Simple Icons */
+.si-typescript { color: #3178C6; }
+.si-flask { color: #000000; }
+.si-fastapi { color: #009688; }
+.si-django { color: #092E20; }
+.si-mongodb { color: #47A248; }
+.si-mysql { color: #00758F; }
+.si-selenium { color: #43B02A; }
+.si-opencv { color: #5C3EE8; }
+.si-visualstudiocode { color: #007ACC; }
+.si-postman { color: #FF6C37; }
+.si-amazonaws { color: #FF9900; }
+
+/* Font Awesome brand colors */
+.fa-python { color: #3776AB; }
+.fa-js, .fa-js-square { color: #F7DF1E; }
+.fa-react { color: #61DAFB; }
+.fa-html5 { color: #E34F26; }
+.fa-css3-alt, .fa-palette { color: #1572B6; }
+.fa-bootstrap { color: #7952B3; }
+.fa-docker { color: #0DB7ED; }
+.fa-git-alt { color: #F05032; }
+.fa-github { color: #181717; }
+.fa-linux { color: #FCC624; }
+.fa-leaf { color: #47A248; }
+.fa-database { color: #336791; }
+.fa-cloud { color: #FF9900; }

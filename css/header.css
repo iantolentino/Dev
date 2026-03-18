@@ -1,0 +1,424 @@
+/* ============================================
+   HEADER CSS - Ian Tolentino Portfolio
+   Navigation and header styles
+   ============================================ */
+
+/* Header Container - Transparent background */
+.header {
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  background: transparent;
+  border-bottom: 1px solid var(--outline);
+  padding: 0 12px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Primary Navigation */
+nav.primary {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+  height: 100%;
+}
+
+/* Home Button with Icon */
+.home-button {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.18s;
+  border: 1px solid transparent;
+  height: 44px;
+}
+
+.home-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  display: block;
+  transition: filter 0.3s ease;
+}
+
+/* Icon color inversion for dark/light themes */
+[data-theme="light"] .home-icon,
+[data-theme="light"] .nav-icon {
+  filter: none;
+}
+
+[data-theme="dark"] .home-icon,
+[data-theme="dark"] .nav-icon {
+  filter: brightness(0) invert(1);
+}
+
+.home-button:hover {
+  background: var(--glass);
+  border: 1px solid var(--outline);
+  transform: translateY(-2px);
+}
+
+/* Navigation Links Container */
+.nav-links {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: nowrap; /* Changed from wrap to nowrap */
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+}
+
+/* Individual Navigation Links */
+.nav-links a {
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.18s;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.nav-links a.active {
+  background: var(--glass);
+  border: 1px solid var(--outline);
+  color: var(--accent);
+}
+
+.nav-links a:hover {
+  background: var(--glass);
+  border: 1px solid var(--outline);
+  color: var(--accent);
+  transform: translateY(-3px);
+}
+
+/* Navigation Icons - Consistent sizing across all pages */
+.nav-icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  object-fit: contain;
+  display: none;
+}
+
+.nav-text {
+  display: inline-block;
+  font-size: 14px;
+}
+
+/* Header Controls (Theme Toggle) */
+.header-controls {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  height: 100%;
+}
+
+/* Theme Switch Container */
+.theme-switch-container {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 8px;
+  border-radius: 8px;
+  transition: all 0.18s;
+  border: 1px solid transparent;
+}
+
+.theme-switch-container:hover {
+  background: var(--glass);
+  border: 1px solid var(--outline);
+}
+
+/* Theme Switch Toggle - Custom Moon/Sun Icons */
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+  flex-shrink: 0;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--panel);
+  transition: 0.4s;
+  border-radius: 34px;
+  border: 2px solid var(--outline);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+}
+
+/* Sun Icon (Light mode) */
+.slider .sun-icon {
+  color: #ffd700;
+  font-size: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  left: 6px;
+}
+
+/* Moon Icon (Dark mode) */
+.slider .moon-icon {
+  color: #a0a0ec;
+  font-size: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  right: 6px;
+}
+
+/* Show appropriate icon based on theme */
+[data-theme="light"] .slider .sun-icon {
+  opacity: 1;
+}
+
+[data-theme="dark"] .slider .moon-icon {
+  opacity: 1;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 2px;
+  background: var(--accent);
+  transition: 0.4s;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Active page indicator */
+.nav-links a.active {
+  background: var(--glass);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  position: relative;
+}
+
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* ============================================
+   Mobile Responsive Styles - FIXED
+   Ensures all icons stay in line
+   ============================================ */
+
+/* Tablet and Mobile Styles */
+@media (max-width: 768px) {
+  /* Show icons, hide text on mobile */
+  .nav-icon {
+    display: block;
+    width: var(--icon-size-mobile);
+    height: var(--icon-size-mobile);
+  }
+
+  .nav-text {
+    display: none;
+  }
+
+  /* Center navigation links - FIXED positioning */
+  .nav-links {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    position: absolute;
+    width: auto;
+    justify-content: center;
+    gap: 4px; /* Reduced gap to prevent wrapping */
+    flex-wrap: nowrap; /* Force no wrapping */
+    overflow-x: auto; /* Allow horizontal scroll if needed */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Hide scrollbar Firefox */
+    padding: 0 4px;
+  }
+
+  /* Hide scrollbar Chrome/Safari */
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Adjust header spacing */
+  .header {
+    padding: 0 8px;
+    justify-content: space-between;
+    height: 60px; /* Slightly taller on mobile */
+    --nav-h: 60px;
+  }
+
+  nav.primary {
+    gap: 4px;
+    height: 100%;
+  }
+
+  .nav-links a {
+    padding: 6px 8px; /* Reduced padding */
+    min-width: 36px; /* Smaller min width */
+    height: 40px; /* Smaller height */
+    justify-content: center;
+    flex-shrink: 0; /* Prevent shrinking */
+  }
+
+  .home-button {
+    margin-right: 0;
+    height: 40px; /* Match other icons */
+    padding: 4px;
+  }
+
+  .home-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .theme-switch-container {
+    margin-left: 0;
+    height: 40px;
+    padding: 0 4px;
+  }
+
+  /* Theme switch adjustment for mobile */
+  .theme-switch {
+    width: 50px;
+    height: 26px;
+  }
+
+  .slider:before {
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 2px;
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(22px);
+  }
+
+  .slider .sun-icon,
+  .slider .moon-icon {
+    font-size: 14px;
+  }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+  .header {
+    height: 56px;
+    --nav-h: 56px;
+    padding: 0 4px;
+  }
+
+  nav.primary {
+    gap: 2px;
+  }
+
+  .nav-links {
+    gap: 2px;
+  }
+
+  .nav-links a {
+    padding: 4px 6px;
+    min-width: 32px;
+    height: 36px;
+  }
+
+  .home-button {
+    padding: 2px;
+    height: 36px;
+  }
+
+  .home-icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
+  }
+
+  .nav-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .theme-switch-container {
+    height: 36px;
+    padding: 0 2px;
+  }
+
+  .theme-switch {
+    width: 46px;
+    height: 24px;
+  }
+
+  .slider:before {
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 2px;
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(20px);
+  }
+
+  .slider .sun-icon,
+  .slider .moon-icon {
+    font-size: 12px;
+  }
+}
+
+/* Extra Small Devices */
+@media (max-width: 360px) {
+  .nav-links a {
+    padding: 4px;
+    min-width: 28px;
+  }
+
+  .home-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .nav-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
