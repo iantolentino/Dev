@@ -1,7 +1,7 @@
 /**
  * projects-filter.js - Filter functionality for projects page
  * @author Ian Tolentino
- * @version 4.0.0
+ * @version 4.1.0 - Fixed filter counts sync
  */
 
 (function() {
@@ -51,6 +51,9 @@
             setTimeout(() => {
                 collectProjectCards();
                 
+                // Update all filter counts after projects are loaded
+                updateAllFilterCounts();
+                
                 // Check URL hash for initial filter
                 const hashFilter = window.location.hash.substring(1);
                 if (hashFilter) {
@@ -76,6 +79,100 @@
     }
 
     /**
+     * Update all filter counts (desktop and mobile)
+     */
+    function updateAllFilterCounts() {
+        if (allProjectCards.length === 0) return;
+        
+        // Calculate counts for each category
+        const counts = calculateCategoryCounts();
+        
+        console.log('📊 Updating filter counts:', counts);
+        
+        // Update desktop filter buttons
+        filterButtons.forEach(btn => {
+            const filter = btn.getAttribute('data-filter');
+            const count = counts[filter] || 0;
+            
+            // Get or create count span
+            let countSpan = btn.querySelector('.filter-count');
+            if (!countSpan) {
+                countSpan = document.createElement('span');
+                countSpan.className = 'filter-count';
+                btn.appendChild(countSpan);
+            }
+            countSpan.textContent = `(${count})`;
+        });
+        
+        // Update mobile dropdown filter options
+        const filterOptions = document.querySelectorAll('.filter-option');
+        filterOptions.forEach(option => {
+            const filter = option.getAttribute('data-filter');
+            const count = counts[filter] || 0;
+            
+            let countSpan = option.querySelector('.filter-count');
+            if (!countSpan) {
+                countSpan = document.createElement('span');
+                countSpan.className = 'filter-count';
+                option.appendChild(countSpan);
+            }
+            countSpan.textContent = `${count}`;
+        });
+        
+        // Also update the specific count elements by ID if they exist
+        const countMapping = {
+            'allCount': counts.all || 0,
+            'webAppsCount': counts['web-apps'] || 0,
+            'pythonCount': counts.python || 0,
+            'desktopCount': counts.desktop || 0,
+            'extensionsCount': counts.extensions || 0,
+            'automationCount': counts.automation || 0,
+            'utilitiesCount': counts.utilities || 0,
+            'mobileAllCount': counts.all || 0,
+            'mobileWebAppsCount': counts['web-apps'] || 0,
+            'mobilePythonCount': counts.python || 0,
+            'mobileDesktopCount': counts.desktop || 0,
+            'mobileExtensionsCount': counts.extensions || 0,
+            'mobileAutomationCount': counts.automation || 0,
+            'mobileUtilitiesCount': counts.utilities || 0
+        };
+        
+        Object.keys(countMapping).forEach(id => {
+            const element = document.getElementById(id);
+            if (element) {
+                element.textContent = countMapping[id];
+            }
+        });
+    }
+
+    /**
+     * Calculate category counts from project cards
+     */
+    function calculateCategoryCounts() {
+        const counts = {
+            'all': allProjectCards.length,
+            'web-apps': 0,
+            'python': 0,
+            'desktop': 0,
+            'extensions': 0,
+            'automation': 0,
+            'utilities': 0
+        };
+        
+        allProjectCards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            if (counts.hasOwnProperty(category)) {
+                counts[category]++;
+            } else {
+                // Handle any unknown categories
+                console.warn(`Unknown category: ${category}`);
+            }
+        });
+        
+        return counts;
+    }
+
+    /**
      * Check if projects are already in the DOM
      */
     function checkForExistingProjects() {
@@ -85,6 +182,7 @@
                 if (cards.length > 0) {
                     console.log(`📊 Found ${cards.length} existing project cards`);
                     collectProjectCards();
+                    updateAllFilterCounts();
                     applyFilter(currentFilter);
                 }
             }
@@ -92,7 +190,7 @@
     }
 
     // Mobile filter dropdown functionality
-    document.addEventListener('DOMContentLoaded', function() {
+    function initMobileDropdown() {
         const dropdownToggle = document.getElementById('filterDropdownToggle');
         const dropdownMenu = document.getElementById('filterDropdownMenu');
         const filterOptions = document.querySelectorAll('.filter-option');
@@ -136,26 +234,20 @@
                 
                 // Update dropdown button text
                 if (dropdownToggle) {
-                    const selectedText = this.querySelector('span').innerHTML;
+                    const selectedIcon = this.querySelector('i')?.outerHTML || '';
+                    const selectedText = this.querySelector('span:first-child')?.innerHTML || this.textContent;
                     dropdownToggle.innerHTML = `<span><i class="fas fa-filter"></i> ${selectedText}</span> <i class="fas fa-chevron-down"></i>`;
                 }
                 
                 // Close dropdown
-                dropdownToggle.classList.remove('active');
-                dropdownMenu.classList.remove('show');
+                if (dropdownToggle) dropdownToggle.classList.remove('active');
+                if (dropdownMenu) dropdownMenu.classList.remove('show');
                 
-                // Trigger filter function (implement your filtering logic here)
-                filterProjects(filter);
+                // Trigger filter function
+                applyFilter(filter);
             });
         });
-        
-        // Function to filter projects (implement based on your needs)
-        function filterProjects(filter) {
-            console.log('Filtering by:', filter);
-            // Add your project filtering logic here
-            // This could involve showing/hiding project cards based on category
-        }
-    });
+    }
 
     /**
      * Collect all project cards from the grid
@@ -187,9 +279,6 @@
         
         // Make cards clickable
         makeCardsClickable();
-        
-        // Update filter counts
-        updateFilterCounts();
     }
 
     /**
@@ -246,6 +335,26 @@
         filterButtons.forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
         
+        // Update mobile dropdown active state
+        const mobileOptions = document.querySelectorAll('.filter-option');
+        mobileOptions.forEach(opt => {
+            if (opt.getAttribute('data-filter') === filter) {
+                opt.classList.add('active');
+            } else {
+                opt.classList.remove('active');
+            }
+        });
+        
+        // Update dropdown button text
+        const dropdownToggle = document.getElementById('filterDropdownToggle');
+        if (dropdownToggle) {
+            const activeMobileOption = document.querySelector(`.filter-option[data-filter="${filter}"]`);
+            if (activeMobileOption) {
+                const selectedText = activeMobileOption.querySelector('span:first-child')?.innerHTML || activeMobileOption.textContent;
+                dropdownToggle.innerHTML = `<span><i class="fas fa-filter"></i> ${selectedText}</span> <i class="fas fa-chevron-down"></i>`;
+            }
+        }
+        
         // Apply filter
         applyFilter(filter);
         
@@ -273,18 +382,12 @@
         allProjectCards.forEach(card => {
             const cardCategory = card.getAttribute('data-category');
             
-            // Debug log for first few cards
-            if (visibleCount < 3) {
-                console.log(`Card category: "${cardCategory}", Filter: "${filter}", Match: ${cardCategory === filter}`);
-            }
-            
             // Match exactly
             const matches = filter === 'all' || cardCategory === filter;
             
             if (matches) {
                 card.style.display = 'flex';
                 card.style.opacity = '1';
-                card.style.animation = 'cardFadeIn 0.3s ease forwards';
                 visibleCount++;
             } else {
                 card.style.display = 'none';
@@ -295,9 +398,6 @@
         
         // Show/hide no projects message
         handleNoProjectsMessage(visibleCount === 0);
-        
-        // Update filter counts
-        updateFilterCounts();
     }
 
     /**
@@ -336,55 +436,6 @@
     }
 
     /**
-     * Update filter button counts
-     */
-    function updateFilterCounts() {
-        if (allProjectCards.length === 0) return;
-        
-        const counts = {
-            'all': allProjectCards.length,
-            'web-apps': 0,
-            'python': 0,
-            'desktop': 0,
-            'extensions': 0,
-            'automation': 0,
-            'utilities': 0
-        };
-        
-        // Count projects per category
-        allProjectCards.forEach(card => {
-            const category = card.getAttribute('data-category');
-            if (counts.hasOwnProperty(category)) {
-                counts[category]++;
-            }
-        });
-        
-        // Update button text
-        filterButtons.forEach(btn => {
-            const filter = btn.getAttribute('data-filter');
-            const count = counts[filter] || 0;
-            
-            // Get button text without the count
-            let baseText = '';
-            switch(filter) {
-                case 'all': baseText = 'All Projects'; break;
-                case 'web-apps': baseText = 'Web Apps'; break;
-                case 'python': baseText = 'Python'; break;
-                case 'desktop': baseText = 'Desktop'; break;
-                case 'extensions': baseText = 'Extensions'; break;
-                case 'automation': baseText = 'Automation'; break;
-                case 'utilities': baseText = 'Utilities'; break;
-                default: baseText = filter;
-            }
-            
-            // Update button HTML
-            btn.innerHTML = `${baseText} <span class="filter-count">(${count})</span>`;
-        });
-        
-        console.log('📊 Filter counts updated:', counts);
-    }
-
-    /**
      * Reset filters to show all projects
      */
     function resetFilters() {
@@ -397,10 +448,16 @@
     // Initialize when DOM is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(initProjectFilters, 500);
+            setTimeout(() => {
+                initProjectFilters();
+                initMobileDropdown();
+            }, 500);
         });
     } else {
-        setTimeout(initProjectFilters, 500);
+        setTimeout(() => {
+            initProjectFilters();
+            initMobileDropdown();
+        }, 500);
     }
 
     // Also try to initialize when window loads
@@ -409,6 +466,7 @@
             if (allProjectCards.length === 0) {
                 console.log('🔄 Retrying filter initialization on window load');
                 collectProjectCards();
+                updateAllFilterCounts();
                 applyFilter(currentFilter);
             }
         }, 1000);
